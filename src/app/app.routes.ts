@@ -7,5 +7,5 @@ export const routes: Routes = [
   { path: 'regras', component: RuleListComponent },
   { path: 'regras/nova', component: RuleFormComponent },
   { path: 'regras/editar/:id', component: RuleFormComponent },
-  { path: '**', redirectTo: 'regras' }
+  { path: '**', redirectTo: 'regras' },
 ];

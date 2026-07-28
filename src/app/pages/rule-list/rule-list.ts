@@ -1,288 +1,157 @@
-import { Component, ChangeDetectionStrategy, inject, computed, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { RuleService } from '../../services/rule.service';
 import { Rule } from '../../models/rule.model';
+import { RuleService } from '../../services/rule.service';
+import { ImpactComponent } from '../impact/impact';
+
+const visualDemoRule: Rule = {
+  id: 'rule-106',
+  name: 'Suspeita Device Fingerprint + Geoloc Divergente',
+  description: 'Device fingerprint em outra conta E geolocalização diverge do histórico (PRD-01)',
+  storeId: 'ALL',
+  storeName: 'Todas as Lojas',
+  payments: ['cartao', 'pix', 'voucher'],
+  logic: 'AND',
+  action: 'REVIEW',
+  layer: '1st',
+  priority: 6,
+  ghostMode: true,
+  active: true,
+  clauses: [],
+  createdAt: '',
+  updatedAt: '',
+};
 
 @Component({
   selector: 'app-rule-list',
-  imports: [CommonModule, RouterLink],
+  imports: [RouterLink, ImpactComponent],
   template: `
-    <div class="rule-list-container">
-      <!-- Executive Breadcrumb -->
+    <div class="rule-list-page">
       <nav class="breadcrumb">
-        <a routerLink="/">Portal Antifraude</a>
-        <span class="sep">/</span>
-        <a routerLink="/">Engine de Risco</a>
-        <span class="sep">/</span>
-        <span class="active">Regras Globais e por Loja</span>
+        <span>Portal Antifraude</span><b>/</b><span>Engine de Risco</span><b>/</b>
+        <span>Regras Globais e por Loja</span>
       </nav>
 
-      <!-- Action & Filter Bar -->
-      <div class="page-header">
-        <div class="header-left">
-          <div class="title-with-badge">
-            <h1 class="page-title">
-              @if (ruleService.searchQuery()) {
-                Resultados para "{{ ruleService.searchQuery() }}"
-              } @else {
-                Gestão de Regras Antifraude
-              }
-            </h1>
-            <span class="kpi-live-tag">LIVE ENGINE</span>
-          </div>
-
-          <div class="scope-indicator" [class.global]="ruleService.currentStore().id === 'ALL'">
-            <span class="indicator-tag">{{ ruleService.currentStore().id === 'ALL' ? 'GLOBAL' : 'LOJA' }}</span>
-            <span class="indicator-text">
-              @if (ruleService.currentStore().id === 'ALL') {
-                Escopo: <strong>Regras Globais</strong> (Todas as Lojas)
-              } @else {
-                Filtrado para a loja: <strong>{{ ruleService.currentStore().name }}</strong>
-              }
-            </span>
-          </div>
+      <section class="title-row">
+        <div>
+          <h1>Gestão de Regras Antifraude</h1>
+          <p>Gerencie regras, escopos e ações antifraude com visibilidade em tempo real.</p>
         </div>
-
-        <div class="header-actions">
-          <a routerLink="/regras/nova" class="btn-eq-primary">
-            <span class="btn-icon">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </span> 
-            Nova Regra Antifraude
+        <div class="title-actions">
+          <span class="live-pill">LIVE ENGINE</span>
+          <a routerLink="/regras/nova" class="primary-button">
+            <span>＋</span> + Nova Regra Antifraude
           </a>
         </div>
+      </section>
+
+      <div class="scope-banner">
+        <span class="scope-icon">◎</span>
+        <strong>GLOBAL</strong>
+        <span>Escopo: Regras Globais (Aplicáveis a todas as lojas do grupo)</span>
       </div>
 
-      <!-- Stats Summary KPI Cards -->
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-icon icon-total">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      <section class="metrics-grid">
+        <article class="metric-card">
+          <span class="metric-icon total">☷</span>
+          <div>
+            <strong>{{ totalRulesCount() }}</strong
+            ><span>Total de Regras</span>
           </div>
-          <div class="stat-info">
-            <span class="stat-value">{{ totalRulesCount() }}</span>
-            <span class="stat-label">Total de Regras</span>
+          <em>100% visíveis</em>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon active">✓</span>
+          <div>
+            <strong>{{ activeRulesCount() }}</strong
+            ><span>Regras Ativas</span>
           </div>
-          <div class="stat-trend trend-neutral">
-            <span>100% visível</span>
+          <em class="green">Em Produção</em>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon global">▱</span>
+          <div>
+            <strong>{{ globalRulesCount() }}</strong
+            ><span>Regras Globais</span>
           </div>
-        </div>
+          <em class="blue">Todas as Lojas</em>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon ghost">♙</span>
+          <div>
+            <strong>{{ ghostRulesCount() }}</strong
+            ><span>Ghost Mode (A/B)</span>
+          </div>
+          <em class="amber">Modo Fantasma</em>
+        </article>
+      </section>
 
-        <div class="stat-card">
-          <div class="stat-icon icon-active">
-            <span class="pulse-dot"></span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div class="stat-info">
-            <span class="stat-value text-success">{{ activeRulesCount() }}</span>
-            <span class="stat-label">Regras Ativas</span>
-          </div>
-          <div class="stat-trend trend-positive">
-            <span>Em Produção</span>
-          </div>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-icon icon-global">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </div>
-          <div class="stat-info">
-            <span class="stat-value text-global">{{ globalRulesCount() }}</span>
-            <span class="stat-label">Regras Globais</span>
-          </div>
-          <div class="stat-trend trend-info">
-            <span>Todas as Lojas</span>
-          </div>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-icon icon-ghost">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <div class="stat-info">
-            <span class="stat-value text-ghost">{{ ghostRulesCount() }}</span>
-            <span class="stat-label">Ghost Mode (A/B)</span>
-          </div>
-          <div class="stat-trend trend-warning">
-            <span>Modo Fantasma</span>
-          </div>
-        </div>
-      </div>
-
-
-      <!-- Table Section -->
-      <div class="card-table">
-        <div class="table-toolbar">
-          <div class="toolbar-left">
-            <span class="toolbar-title">Matriz de Regras de Risco</span>
-            <span class="toolbar-count">Exibindo {{ ruleService.filteredRules().length }} de {{ ruleService.rules().length }} regras</span>
-          </div>
-
-          <div class="toolbar-right">
-            @if (ruleService.searchQuery()) {
-              <button class="btn-clear-filter" (click)="clearFilters()">
-                ✕ Limpar busca
-              </button>
-            }
-          </div>
-        </div>
-
-        <div class="table-responsive">
-          <table class="app-table">
-
+      <section class="rules-table-card">
+        <div class="table-scroll">
+          <table>
             <thead>
               <tr>
-                <th style="width: 70px;">Status</th>
-                <th style="width: 130px;">Escopo</th>
-                <th style="width: 90px;">Prioridade</th>
+                <th>StatusEscopo</th>
+                <th>Prio</th>
                 <th>Nome da Regra</th>
-                <th>Descrição</th>
-                <th style="width: 100px;">Camada</th>
-                <th>Pagamento</th>
-                <th style="width: 120px;">Ação Antifraude</th>
-                <th style="width: 100px;">Criada</th>
-                <th style="width: 100px;">Atualizada</th>
-                <th style="text-align: center; width: 130px;">Ações</th>
+                <th>Descrição / Objetivo</th>
+                <th>Camada</th>
+                <th>Ação Antifraude</th>
+                <th>Ações</th>
               </tr>
             </thead>
             <tbody>
-              @for (rule of ruleService.filteredRules(); track rule.id) {
-                <tr [class.inactive]="!rule.active" [class.ghost-row]="rule.ghostMode">
-                  <!-- Status Toggle -->
-                  <td class="col-status">
-                    <label class="switch-toggle" [title]="rule.active ? 'Regra Ativa (clique para desativar)' : 'Regra Inativa (clique para ativar)'">
-                      <input 
-                        type="checkbox" 
-                        [checked]="rule.active" 
-                        (change)="onToggleStatus(rule.id)"
-                      />
-                      <span class="slider"></span>
-                    </label>
-                  </td>
-
-                  <!-- Scope -->
-                  <td>
-                    @if (rule.storeId === 'ALL') {
-                      <span class="badge badge-global" title="Regra atua em todas as lojas">
-                        <span class="badge-dot"></span> Global
-                      </span>
-                    } @else {
-                      <span class="badge badge-store" title="Regra específica desta loja">
-                        <span class="badge-dot"></span> {{ rule.storeName }}
-                      </span>
-                    }
-                  </td>
-
-                  <!-- Priority -->
-                  <td>
-                    <span class="priority-badge" [title]="'Prioridade #' + rule.priority">
-                      #{{ rule.priority < 10 ? '0' + rule.priority : rule.priority }}
-                    </span>
-                  </td>
-
-                  <!-- Name -->
-                  <td>
-                    <div class="rule-name-wrapper">
-                      <strong class="rule-name">{{ rule.name }}</strong>
-                      @if (rule.ghostMode) {
-                        <span class="badge badge-ghost" title="Ghost Mode ativo: simula impacto sem alterar decisão real">
-                          Ghost Mode
-                        </span>
-                      }
-                    </div>
-                  </td>
-
-                  <!-- Description -->
-                  <td class="col-description">
-                    <span class="text-muted">{{ rule.description || 'Sem descrição cadastrada.' }}</span>
-                  </td>
-
-                  <!-- Layer -->
-                  <td>
-                    <span class="layer-tag" [class.layer-2nd]="rule.layer === '2nd'">
-                      {{ rule.layer === '1st' ? '1ª Camada' : '2ª Camada' }}
-                    </span>
-                  </td>
-
-                  <!-- Payments -->
-                  <td>
-                    <div class="payment-tags">
-                      @for (p of rule.payments; track p) {
-                        <span class="payment-badge">{{ formatPaymentName(p) }}</span>
-                      }
-                    </div>
-                  </td>
-
-                  <!-- Action / Decision -->
-                  <td>
-                    <span class="action-badge" [class]="'action-' + rule.action.toLowerCase()">
-                      @switch (rule.action) {
-                        @case ('APPROVE') {
-                          Aprovar
-                        }
-                        @case ('REVIEW') {
-                          Revisar
-                        }
-                        @case ('DECLINE') {
-                          Negar
-                        }
-                      }
-                    </span>
-                  </td>
-
-                  <!-- Dates -->
-                  <td class="col-date">{{ rule.createdAt }}</td>
-                  <td class="col-date">{{ rule.updatedAt }}</td>
-
-                  <!-- Actions / Options -->
-                  <td class="col-actions">
-                    <div class="actions-group">
-                      <button 
-                        class="btn-icon-action btn-edit" 
-                        title="Editar Regra"
-                        (click)="onEditRule(rule.id)"
-                      >
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-                      </button>
-
-                      <button 
-                        class="btn-icon-action btn-duplicate" 
-                        title="Duplicar Regra"
-                        (click)="onDuplicateRule(rule.id)"
-                      >
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-                      </button>
-
-                      <button 
-                        class="btn-icon-action btn-delete" 
-                        title="Excluir Regra"
-                        (click)="onDeleteRule(rule)"
-                      >
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              } @empty {
+              @for (rule of displayRules(); track rule.id) {
                 <tr>
-                  <td colspan="11" class="empty-state">
-                    <div class="empty-content">
-                      <span class="empty-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <td>
+                    <div class="status-scope">
+                      <label class="switch">
+                        <input type="checkbox" [checked]="rule.active" (change)="toggle(rule)" />
+                        <span></span>
+                      </label>
+                      <span class="scope-badge" [class.store]="rule.storeId !== 'ALL'">
+                        {{ rule.storeId === 'ALL' ? 'Global' : shortStore(rule) }}
                       </span>
-                      <h3>Nenhuma regra encontrada</h3>
-                      <p>Não encontramos regras que coincidam com o termo de busca ou filtro de loja atual.</p>
-                      <button class="btn-eq-secondary" (click)="clearFilters()">Limpar filtros de busca</button>
                     </div>
+                  </td>
+                  <td>
+                    <strong class="priority">#0{{ rule.priority }}</strong>
+                  </td>
+                  <td>
+                    <strong class="rule-name" [class.featured]="rule.id === 'rule-106'">
+                      {{ compactName(rule) }}
+                    </strong>
+                  </td>
+                  <td>
+                    <span class="description">{{ compactDescription(rule) }}</span>
+                  </td>
+                  <td>
+                    <strong class="layer">{{
+                      rule.layer === '1st' ? '1ª Camada' : '2ª Camada'
+                    }}</strong>
+                  </td>
+                  <td>
+                    <span class="action" [class]="'action ' + rule.action.toLowerCase()">
+                      {{ actionLabel(rule) }}
+                    </span>
+                  </td>
+                  <td>
+                    <button type="button" class="edit-button" (click)="edit(rule)">Editar</button>
                   </td>
                 </tr>
               }
-
             </tbody>
           </table>
         </div>
-      </div>
+      </section>
+
+      <button type="button" class="floating-simulator" (click)="showImpactModal.set(true)">
+        <span>ϟ</span> ⚡ Simulador em Tempo Real
+      </button>
+
+      @if (showImpactModal()) {
+        <app-impact (close)="showImpactModal.set(false)" />
+      }
     </div>
   `,
   styleUrl: './rule-list.scss',
@@ -291,41 +160,71 @@ import { Rule } from '../../models/rule.model';
 export class RuleListComponent {
   readonly ruleService = inject(RuleService);
   private readonly router = inject(Router);
+  readonly showImpactModal = signal(false);
 
-  readonly totalRulesCount = computed(() => this.ruleService.filteredRules().length);
-  readonly activeRulesCount = computed(() => this.ruleService.filteredRules().filter(r => r.active).length);
-  readonly globalRulesCount = computed(() => this.ruleService.filteredRules().filter(r => r.storeId === 'ALL').length);
-  readonly ghostRulesCount = computed(() => this.ruleService.filteredRules().filter(r => r.ghostMode).length);
+  readonly displayRules = computed(() => {
+    const rules = this.ruleService.filteredRules();
+    if (rules.some((rule) => rule.id === visualDemoRule.id)) return rules;
 
-  onToggleStatus(ruleId: string) {
-    this.ruleService.toggleRuleStatus(ruleId);
+    const query = this.ruleService.searchQuery().trim().toLowerCase();
+    const store = this.ruleService.selectedStoreId();
+    const matchesQuery =
+      !query ||
+      visualDemoRule.name.toLowerCase().includes(query) ||
+      visualDemoRule.description.toLowerCase().includes(query);
+    const matchesStore = store === 'ALL';
+
+    return matchesQuery && matchesStore ? [...rules, visualDemoRule] : rules;
+  });
+
+  readonly totalRulesCount = computed(() => this.displayRules().length);
+  readonly activeRulesCount = computed(
+    () => this.displayRules().filter((rule) => rule.active).length,
+  );
+  readonly globalRulesCount = computed(
+    () => this.displayRules().filter((rule) => rule.storeId === 'ALL').length,
+  );
+  readonly ghostRulesCount = computed(
+    () => this.displayRules().filter((rule) => rule.ghostMode).length,
+  );
+
+  toggle(rule: Rule) {
+    if (rule.id !== visualDemoRule.id) this.ruleService.toggleRuleStatus(rule.id);
   }
 
-  onEditRule(ruleId: string) {
-    this.router.navigate(['/regras/editar', ruleId]);
+  edit(rule: Rule) {
+    this.router.navigate(['/regras/editar', rule.id]);
   }
 
-  onDuplicateRule(ruleId: string) {
-    this.ruleService.duplicateRule(ruleId);
+  shortStore(rule: Rule): string {
+    if (rule.storeId === 'store-1') return 'Loja 1';
+    if (rule.storeId === 'store-2') return 'Loja 2';
+    return rule.storeName;
   }
 
-  onDeleteRule(rule: Rule) {
-    if (confirm(`Tem certeza que deseja excluir a regra "${rule.name}"?`)) {
-      this.ruleService.deleteRule(rule.id);
-    }
+  compactName(rule: Rule): string {
+    const names: Record<string, string> = {
+      'rule-101': 'Regra Global Checagem País Entrega x Cartão',
+      'rule-102': 'Bloqueio Múltiplos Vouchers + Parcelamento Alto',
+      'rule-103': 'Aprovação Rápida Pix - Loja Treinamentos',
+      'rule-104': 'Bloqueio BINs Alto Risco & Múltiplas Tentativas',
+      'rule-105': 'Revisão por E-mail Temporário / Descartável',
+    };
+    return names[rule.id] ?? rule.name;
   }
 
-  clearFilters() {
-    this.ruleService.setSearchQuery('');
+  compactDescription(rule: Rule): string {
+    const descriptions: Record<string, string> = {
+      'rule-101': 'Direciona para revisão quando país do cartão difere da entrega',
+      'rule-102': 'Nega compras acima de 10x com mais de 50% pago via voucher',
+      'rule-103': 'Aprova compras via Pix abaixo de R$ 300 na Loja Treinamentos',
+      'rule-104': 'Negativa transações com >3 tentativas em 24h para BINs restritos',
+      'rule-105': 'Revisa pedidos efetuados por domínios de e-mail descartáveis',
+    };
+    return descriptions[rule.id] ?? rule.description;
   }
 
-  formatPaymentName(p: string): string {
-    switch (p) {
-      case 'cartao': return 'Cartão';
-      case 'pix': return 'PIX / EAD';
-      case 'voucher': return 'Voucher';
-      case 'boleto': return 'Boleto';
-      default: return p;
-    }
+  actionLabel(rule: Rule): string {
+    return rule.action === 'APPROVE' ? 'APROVAR' : rule.action === 'DECLINE' ? 'NEGAR' : 'REVISAR';
   }
 }

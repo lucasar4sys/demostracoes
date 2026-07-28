@@ -3,53 +3,55 @@
 :root {
   /* Brand Primary - Red Accent */
 
-  --eq-red-primary: #9E1C33;
-  --eq-red-dark: #7A1426;
-  --eq-red-light: #C8102E;
-  --eq-red-soft: #FDF2F4;
+  --eq-red-primary: #9e1c33;
+  --eq-red-dark: #7a1426;
+  --eq-red-light: #c8102e;
+  --eq-red-soft: #fdf2f4;
   --eq-red-glow: rgba(158, 28, 51, 0.25);
 
   /* Brand Secondary / Interactive - Equifax Blue/Teal & Orange */
-  --eq-blue-primary: #007298;
-  --eq-blue-dark: #005B7A;
-  --eq-blue-light: #00ACE6;
-  --eq-blue-soft: #E0F2FE;
-  --eq-blue-glow: rgba(0, 114, 152, 0.2);
+  --eq-blue-primary: #2563eb;
+  --eq-blue-dark: #1d4ed8;
+  --eq-blue-light: #3b82f6;
+  --eq-blue-soft: #eff6ff;
+  --eq-blue-glow: rgba(37, 99, 235, 0.2);
 
-  --eq-orange-primary: #F86800;
-  --eq-orange-dark: #D95800;
-  --eq-orange-soft: #FFF3E0;
+  --eq-orange-primary: #f86800;
+  --eq-orange-dark: #d95800;
+  --eq-orange-soft: #fff3e0;
 
-  --eq-success-green: #1B7A30;
-  --eq-success-light: #278C10;
-  --eq-success-soft: #E8F5E9;
-  --eq-success-border: #A5D6A7;
+  --eq-success-green: #1b7a30;
+  --eq-success-light: #278c10;
+  --eq-success-soft: #e8f5e9;
+  --eq-success-border: #a5d6a7;
 
-  --eq-warning-yellow: #D97706;
-  --eq-warning-soft: #FFF8E1;
-  --eq-warning-border: #FDE68A;
+  --eq-warning-yellow: #d97706;
+  --eq-warning-soft: #fff8e1;
+  --eq-warning-border: #fde68a;
 
-  --eq-danger-red: #9E1C33;
-  --eq-danger-soft: #FFEBEE;
-  --eq-danger-border: #FFCDD2;
+  --eq-danger-red: #9e1c33;
+  --eq-danger-soft: #ffebee;
+  --eq-danger-border: #ffcdd2;
 
   /* Slate & Neutrals - Dark Executive Palette */
-  --eq-slate-950: #0F1215;
-  --eq-slate-900: #181C20;
-  --eq-slate-850: #1F2428;
+  --eq-slate-950: #0f1215;
+  --eq-slate-900: #181c20;
+  --eq-slate-850: #1f2428;
   --eq-slate-800: #272833;
-  --eq-slate-700: #333E48;
+  --eq-slate-700: #333e48;
   --eq-slate-600: #495057;
-  --eq-slate-500: #64748B;
-  --eq-slate-400: #94A3B8;
-  --eq-slate-300: #CBD5E1;
-  --eq-slate-200: #E2E8F0;
-  --eq-slate-100: #F1F5F9;
-  --eq-slate-50:  #F8FAFC;
-  --eq-white:     #FFFFFF;
+  --eq-slate-500: #64748b;
+  --eq-slate-400: #94a3b8;
+  --eq-slate-300: #cbd5e1;
+  --eq-slate-200: #e2e8f0;
+  --eq-slate-100: #f1f5f9;
+  --eq-slate-50: #f8fafc;
+  --eq-white: #ffffff;
 
   /* Typography */
-  --eq-font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --eq-font-family:
+    Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
   --eq-font-weight-light: 300;
   --eq-font-weight-normal: 400;
   --eq-font-weight-medium: 500;
@@ -81,11 +83,12 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: var(--eq-font-family);
-  background-color: var(--eq-slate-100);
+  background-color: #f8fafc;
   color: var(--eq-slate-800);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -107,7 +110,10 @@ html, body {
   background: var(--eq-slate-500);
 }
 
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
   font-family: inherit;
 }
 
@@ -122,8 +128,8 @@ a {
 }
 
 /* Executive Buttons */
-.btn-eq-primary, .btn-primary {
-
+.btn-eq-primary,
+.btn-primary {
   background: linear-gradient(135deg, var(--eq-red-primary) 0%, var(--eq-red-dark) 100%);
   color: var(--eq-white);
   padding: 0.65rem 1.4rem;
@@ -141,7 +147,7 @@ a {
   transition: var(--eq-transition-normal);
 
   &:hover {
-    background: linear-gradient(135deg, #B5223C 0%, var(--eq-red-primary) 100%);
+    background: linear-gradient(135deg, #b5223c 0%, var(--eq-red-primary) 100%);
     box-shadow: 0 4px 14px rgba(158, 28, 51, 0.38);
     transform: translateY(-1px);
   }
@@ -165,8 +171,8 @@ a {
   }
 }
 
-.btn-eq-secondary, .btn-secondary {
-
+.btn-eq-secondary,
+.btn-secondary {
   background-color: var(--eq-white);
   color: var(--eq-slate-700);
   padding: 0.6rem 1.25rem;
@@ -190,8 +196,8 @@ a {
   }
 }
 
-.btn-eq-outline-teal, .btn-outline-teal {
-
+.btn-eq-outline-teal,
+.btn-outline-teal {
   background-color: transparent;
   color: var(--eq-blue-primary);
   padding: 0.55rem 1.15rem;
@@ -211,11 +217,22 @@ a {
 
 /* Common Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes pulseGlow {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
