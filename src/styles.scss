@@ -1,0 +1,221 @@
+/* Global SCSS Styles - Executive Antifraud Design System */
+
+:root {
+  /* Brand Primary - Red Accent */
+
+  --eq-red-primary: #9E1C33;
+  --eq-red-dark: #7A1426;
+  --eq-red-light: #C8102E;
+  --eq-red-soft: #FDF2F4;
+  --eq-red-glow: rgba(158, 28, 51, 0.25);
+
+  /* Brand Secondary / Interactive - Equifax Blue/Teal & Orange */
+  --eq-blue-primary: #007298;
+  --eq-blue-dark: #005B7A;
+  --eq-blue-light: #00ACE6;
+  --eq-blue-soft: #E0F2FE;
+  --eq-blue-glow: rgba(0, 114, 152, 0.2);
+
+  --eq-orange-primary: #F86800;
+  --eq-orange-dark: #D95800;
+  --eq-orange-soft: #FFF3E0;
+
+  --eq-success-green: #1B7A30;
+  --eq-success-light: #278C10;
+  --eq-success-soft: #E8F5E9;
+  --eq-success-border: #A5D6A7;
+
+  --eq-warning-yellow: #D97706;
+  --eq-warning-soft: #FFF8E1;
+  --eq-warning-border: #FDE68A;
+
+  --eq-danger-red: #9E1C33;
+  --eq-danger-soft: #FFEBEE;
+  --eq-danger-border: #FFCDD2;
+
+  /* Slate & Neutrals - Dark Executive Palette */
+  --eq-slate-950: #0F1215;
+  --eq-slate-900: #181C20;
+  --eq-slate-850: #1F2428;
+  --eq-slate-800: #272833;
+  --eq-slate-700: #333E48;
+  --eq-slate-600: #495057;
+  --eq-slate-500: #64748B;
+  --eq-slate-400: #94A3B8;
+  --eq-slate-300: #CBD5E1;
+  --eq-slate-200: #E2E8F0;
+  --eq-slate-100: #F1F5F9;
+  --eq-slate-50:  #F8FAFC;
+  --eq-white:     #FFFFFF;
+
+  /* Typography */
+  --eq-font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --eq-font-weight-light: 300;
+  --eq-font-weight-normal: 400;
+  --eq-font-weight-medium: 500;
+  --eq-font-weight-semibold: 600;
+  --eq-font-weight-bold: 700;
+  --eq-font-weight-extrabold: 800;
+
+  /* Premium Elevation & Modern Shadows */
+  --eq-shadow-xs: 0 1px 2px rgba(15, 18, 21, 0.04);
+  --eq-shadow-sm: 0 2px 6px rgba(15, 18, 21, 0.06), 0 1px 2px rgba(15, 18, 21, 0.04);
+  --eq-shadow-md: 0 6px 18px rgba(15, 18, 21, 0.08), 0 2px 6px rgba(15, 18, 21, 0.04);
+  --eq-shadow-lg: 0 12px 32px rgba(15, 18, 21, 0.12), 0 4px 12px rgba(15, 18, 21, 0.06);
+  --eq-shadow-xl: 0 20px 48px rgba(15, 18, 21, 0.18), 0 8px 20px rgba(15, 18, 21, 0.08);
+
+  /* Corner Radius */
+  --eq-radius-xs: 4px;
+  --eq-radius-sm: 6px;
+  --eq-radius-md: 10px;
+  --eq-radius-lg: 14px;
+  --eq-radius-xl: 20px;
+  --eq-radius-pill: 9999px;
+
+  /* Transitions */
+  --eq-transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --eq-transition-normal: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--eq-font-family);
+  background-color: var(--eq-slate-100);
+  color: var(--eq-slate-800);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Modern Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--eq-slate-100);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--eq-slate-300);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--eq-slate-500);
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+a {
+  color: var(--eq-blue-primary);
+  text-decoration: none;
+  transition: var(--eq-transition-fast);
+
+  &:hover {
+    color: var(--eq-blue-dark);
+  }
+}
+
+/* Executive Buttons */
+.btn-eq-primary, .btn-primary {
+
+  background: linear-gradient(135deg, var(--eq-red-primary) 0%, var(--eq-red-dark) 100%);
+  color: var(--eq-white);
+  padding: 0.65rem 1.4rem;
+  border-radius: var(--eq-radius-sm);
+  border: 1px solid var(--eq-red-dark);
+  font-weight: var(--eq-font-weight-semibold);
+  font-size: 0.875rem;
+  letter-spacing: 0.2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(158, 28, 51, 0.25);
+  transition: var(--eq-transition-normal);
+
+  &:hover {
+    background: linear-gradient(135deg, #B5223C 0%, var(--eq-red-primary) 100%);
+    box-shadow: 0 4px 14px rgba(158, 28, 51, 0.38);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--eq-blue-primary);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    background: var(--eq-slate-300);
+    border-color: var(--eq-slate-300);
+    color: var(--eq-slate-500);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+.btn-eq-secondary, .btn-secondary {
+
+  background-color: var(--eq-white);
+  color: var(--eq-slate-700);
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--eq-radius-sm);
+  border: 1px solid var(--eq-slate-300);
+  font-weight: var(--eq-font-weight-semibold);
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  box-shadow: var(--eq-shadow-xs);
+  transition: var(--eq-transition-fast);
+
+  &:hover {
+    background-color: var(--eq-slate-50);
+    color: var(--eq-slate-900);
+    border-color: var(--eq-slate-400);
+    box-shadow: var(--eq-shadow-sm);
+  }
+}
+
+.btn-eq-outline-teal, .btn-outline-teal {
+
+  background-color: transparent;
+  color: var(--eq-blue-primary);
+  padding: 0.55rem 1.15rem;
+  border-radius: var(--eq-radius-sm);
+  border: 1px solid var(--eq-blue-primary);
+  font-weight: var(--eq-font-weight-semibold);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: var(--eq-transition-fast);
+
+  &:hover {
+    background-color: var(--eq-blue-soft);
+    color: var(--eq-blue-dark);
+    border-color: var(--eq-blue-dark);
+  }
+}
+
+/* Common Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
