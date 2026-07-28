@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executive Antifraud Design System - EBV Konduto</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Toast notification for copy feedback */
+    .copy-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: var(--eq-slate-900);
+      color: var(--eq-white);
+      padding: 12px 20px;
+      border-radius: var(--eq-radius-sm);
+      border-left: 4px solid var(--eq-blue-light);
+      box-shadow: var(--eq-shadow-lg);
+      font-size: 0.8125rem;
+      font-weight: var(--eq-font-weight-semibold);
+      z-index: 2000;
+      display: opacity;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+    }
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toast Feedback Overlay -->
+  <div id="copyToast" class="copy-toast">Copiado para a área de transferência!</div>
+
+  <div class="ds-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="ds-sidebar">
+      <div class="ds-sidebar-brand">
+        <div class="ds-brand-title">
+          <span style="color: var(--eq-red-primary); font-size: 1.3rem;">●</span> EBV Konduto DS
+        </div>
+        <div class="ds-brand-subtitle">Executive Antifraud v1.0</div>
+      </div>
+
+      <nav class="ds-nav">
+        <div class="ds-nav-section">Fundamentos</div>
+        <a href="#tokens-cores" class="ds-nav-item active">🎨 Paleta de Cores</a>
+        <a href="#tipografia" class="ds-nav-item">✍️ Tipografia</a>
+        <a href="#elevacao-radius" class="ds-nav-item">✨ Elevação & Raios</a>
+
+        <div class="ds-nav-section">Componentes UI</div>
+        <a href="#botoes" class="ds-nav-item">🔘 Botões & Ações</a>
+        <a href="#badges-tags" class="ds-nav-item">🏷️ Badges & Status</a>
+        <a href="#cards-kpi" class="ds-nav-item">📊 Cards KPI & Métricas</a>
+        <a href="#formularios" class="ds-nav-item">📝 Formulários & Controles</a>
+        <a href="#condition-builder" class="ds-nav-item">⚡ Construtor de Regras</a>
+        <a href="#tabelas" class="ds-nav-item">📋 Tabela Executiva</a>
+        <a href="#header-toasts" class="ds-nav-item">🖥️ Header & Toasts</a>
+        <a href="#modais" class="ds-nav-item">🪟 Modais & Simulador</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="ds-main">
+
+      <!-- Hero Banner -->
+      <div style="margin-bottom: 2.5rem; background: linear-gradient(135deg, var(--eq-slate-900) 0%, var(--eq-slate-850) 100%); color: var(--eq-white); padding: 2.5rem; border-radius: var(--eq-radius-lg); border-bottom: 4px solid var(--eq-red-primary); box-shadow: var(--eq-shadow-lg);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.1); padding: 0.25rem 0.75rem; border-radius: var(--eq-radius-pill); font-size: 0.75rem; font-weight: var(--eq-font-weight-bold); letter-spacing: 0.5px; margin-bottom: 1rem;">
+              <span>ANGULAR 20+</span> • <span>EQUIFAX DESIGN SYSTEM</span>
+            </div>
+            <h1 style="font-size: 2.2rem; font-weight: var(--eq-font-weight-extrabold); margin: 0 0 0.5rem 0; letter-spacing: -0.5px;">
+              Executive Antifraud Design System
+            </h1>
+            <p style="font-size: 1rem; color: var(--eq-slate-300); margin: 0; max-width: 680px; line-height: 1.6;">
+              Catalógo e guia de estilos extraído do ecossistema EBV-Konduto. Inclui tokens de design, componentes corporativos de prevenção a fraudes, tipografia e bibliotecas de interação.
+            </p>
+          </div>
+          <button class="btn-sim-header" onclick="toggleSimulatorModal(true)" style="padding: 0.75rem 1.25rem; font-size: 0.875rem;">
+            <span style="font-size: 1rem;">⚡</span> Testar Simulador ao Vivo
+          </button>
+        </div>
+      </div>
+
+
+      <!-- SECTION 1: PALETA DE CORES -->
+      <section id="tokens-cores" class="ds-section">
+        <h2 class="ds-section-title">🎨 Tokens de Design & Paleta de Cores</h2>
+        <p class="ds-section-desc">Cores institucionais e funcionais definidas no arquivo CSS principal via variáveis CSS (`:root`). Clique no card para copiar a variável CSS.</p>
+
+        <!-- Brand Primary Red -->
+        <div class="ds-component-box">
+          <div class="ds-component-title">Brand Primary - Vermelho Executivo</div>
+          <div class="color-swatch-grid">
+            <div class="color-swatch-card" onclick="copyToClipboard('--eq-red-primary')">
+              <div class="color-box" style="background-color: var(--eq-red-primary);"></div>
+              <div class="color-info">
+                <div class="color-name">Red Primary</div>
+                <div class="color-var">--eq-red-primary</div>
+                <div class="color-hex">#9E1C33</div>
+              </div>
+            </div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--eq-red-dark')">
+              <div class="color-box" style="background-color: var(--eq-red-dark);"></div>
+              <div class="color-info">
+                <div class="color-name">Red Dark</div>
+                <div class="color-var">--eq-red-dark</div>
+                <div class="color-hex">#7A1426</div>
+              </div>
+            </div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--eq-red-light')">
+              <div class="color-box" style="background-color: var(--eq-red-light);"></div>
+              <div class="color-info">
+                <div class="color-name">Red Light</div>
+                <div class="color-var">--eq-red-light</div>
+                <div class="color-hex">#C8102E</div>
+              </div>
+            </div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--eq-red-soft')">
+              <div class="color-box" style="background-color: var(--eq-red-soft); border-bottom: 1px solid var(--eq-slate-200);"></div>
+              <div class="color-info">
+                <div class="color-name">Red Soft</div>
+                <div class="color-var">--eq-red-soft</div>
+                <div class="color-hex">#FDF2F4</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Secondary Blue & Orange -->
+        <div class="ds-component-box">
+          <div class="ds-component-title">Brand Secondary & Destaques (Blue/Teal & Orange)</div>
+          <div class="color-swatch-grid">
+            <div class="color-swatch-card" onclick="copyToClipboard('--eq-blue-primary')">
+              <div class="color-box" style="background-color: var(--eq-blue-primary);"></div>
+              <div class="color-info">
+                <div class="color-name">Blue Primary</div>
+                <div class="color-var">--eq-blue-primary</div>
+                <div class="color-hex">#007298</div>
+              </div>
+            </div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--eq-blue-dark')">
+              <div class="color-box" style="background-color: var(--eq-blue-dark);"></div>
+              <div class="color-info">
+                <div class="color-name">Blue Dark</div>
+                <div class="color-var">--eq-blue-dark</div>
+                <div class="color-hex">#005B7A</div>
+              </div>
+            </div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--eq-blue-soft')">
+              <div class="color-box" style="background-color: var(--eq-blue-soft); border-bottom: 1px solid var(--eq-slate-200);"></div>
+              <div class="color-info">
+                <div class="color-name">Blue Soft</div>
+                <div class="color-var">--eq-blue-soft</div>
+                <div class="color-hex">#E0F2FE</div>
+              </div>
+            </div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--eq-orange-primary')">
+              <div class="color-box" style="background-color: var(--eq-orange-primary);"></div>
+              <div class="color-info">
+                <div class="color-name">Orange Primary</div>
+                <div class="color-var">--eq-orange-primary</div>
+                <div class="color-hex">#F86800</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Status & Feedback -->
+        <div class="ds-component-box">
+          <div class="ds-component-title">Cores Semânticas de Status & Feedback</div>
+          <div class="color-swatch-grid">
+            <div class="color-swatch-card" onclick="copyToClipboard('--eq-success-green')">
+              <div class="color-box" style="background-color: var(--eq-success-green);"></div>
+              <div class="color-info">
+                <div class="color-name">Success Green</div>
+                <div class="color-var">--eq-success-green</div>
+                <div class="color-hex">#1B7A30</div>
+              </div>
+            </div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--eq-warning-yellow')">
+              <div class="color-box" style="background-color: var(--eq-warning-yellow);"></div>
+              <div class="color-info">
+                <div class="color-name">Warning Yellow</div>
+                <div class="color-var">--eq-warning-yellow</div>
+                <div class="color-hex">#D97706</div>
+              </div>
+            </div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--eq-danger-red')">
+              <div class="color-box" style="background-color: var(--eq-danger-red);"></div>
+              <div class="color-info">
+                <div class="color-name">Danger Red</div>
+                <div class="color-var">--eq-danger-red</div>
+                <div class="color-hex">#9E1C33</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Neutral Scale -->
+        <div class="ds-component-box">
+          <div class="ds-component-title">Escala de Neutros Executive Slate</div>
+          <div class="color-swatch-grid">
+            <div class="color-swatch-card" onclick="copyToClipboard('--eq-slate-950')">
+              <div class="color-box" style="background-color: var(--eq-slate-950);"></div>
+              <div class="color-info"><div class="color-name">Slate 950</div><div class="color-var">--eq-slate-950</div><div class="color-hex">#0F1215</div></div>
+            </div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--eq-slate-900')">
+              <div class="color-box" style="background-color: var(--eq-slate-900);"></div>
+              <div class="color-info"><div class="color-name">Slate 900</div><div class="color-var">--eq-slate-900</div><div class="color-hex">#181C20</div></div>
+            </div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--eq-slate-700')">
+              <div class="color-box" style="background-color: var(--eq-slate-700);"></div>
+              <div class="color-info"><div class="color-name">Slate 700</div><div class="color-var">--eq-slate-700</div><div class="color-hex">#333E48</div></div>
+            </div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--eq-slate-500')">
+              <div class="color-box" style="background-color: var(--eq-slate-500);"></div>
+              <div class="color-info"><div class="color-name">Slate 500</div><div class="color-var">--eq-slate-500</div><div class="color-hex">#64748B</div></div>
+            </div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--eq-slate-300')">
+              <div class="color-box" style="background-color: var(--eq-slate-300);"></div>
+              <div class="color-info"><div class="color-name">Slate 300</div><div class="color-var">--eq-slate-300</div><div class="color-hex">#CBD5E1</div></div>
+            </div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--eq-slate-100')">
+              <div class="color-box" style="background-color: var(--eq-slate-100); border-bottom: 1px solid var(--eq-slate-200);"></div>
+              <div class="color-info"><div class="color-name">Slate 100</div><div class="color-var">--eq-slate-100</div><div class="color-hex">#F1F5F9</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- SECTION 2: TIPOGRAFIA -->
+      <section id="tipografia" class="ds-section">
+        <h2 class="ds-section-title">✍️ Tipografia & Hierarquia Visual</h2>
+        <p class="ds-section-desc">Fonte primária: <code>Open Sans</code>. Fonte para código/regras: <code>JetBrains Mono</code>.</p>
+
+        <div class="ds-component-box">
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div>
+              <span style="font-size: 0.75rem; color: var(--eq-slate-500); font-weight: var(--eq-font-weight-bold); text-transform: uppercase;">Heading 1 (1.65rem / 26px - Extrabold 800)</span>
+              <h1 style="font-size: 1.65rem; font-weight: var(--eq-font-weight-extrabold); color: var(--eq-slate-900); margin: 0.25rem 0 0 0; letter-spacing: -0.3px;">
+                Gestão de Regras Antifraude Executivo
+              </h1>
+            </div>
+            <hr style="border: 0; border-top: 1px solid var(--eq-slate-200); margin: 0;">
+            <div>
+              <span style="font-size: 0.75rem; color: var(--eq-slate-500); font-weight: var(--eq-font-weight-bold); text-transform: uppercase;">Heading 2 (1.25rem / 20px - Bold 700)</span>
+              <h2 style="font-size: 1.25rem; font-weight: var(--eq-font-weight-bold); color: var(--eq-slate-900); margin: 0.25rem 0 0 0;">
+                Parâmetros e Condições de Disparo da Regra
+              </h2>
+            </div>
+            <hr style="border: 0; border-top: 1px solid var(--eq-slate-200); margin: 0;">
+            <div>
+              <span style="font-size: 0.75rem; color: var(--eq-slate-500); font-weight: var(--eq-font-weight-bold); text-transform: uppercase;">Body Text (0.875rem / 14px - Regular 400)</span>
+              <p style="font-size: 0.875rem; color: var(--eq-slate-700); margin: 0.25rem 0 0 0;">
+                As regras cadastradas nesta central são processadas em tempo real durante o checkout das transações do e-commerce. A engine valida padrões de risco antes da captura final do pagamento.
+              </p>
+            </div>
+            <hr style="border: 0; border-top: 1px solid var(--eq-slate-200); margin: 0;">
+            <div>
+              <span style="font-size: 0.75rem; color: var(--eq-slate-500); font-weight: var(--eq-font-weight-bold); text-transform: uppercase;">Code / Expression Font (JetBrains Mono)</span>
+              <div class="code-block">
+                RULE_049: IF (score_konduto &gt; 850 AND value_brl &gt; 1500) THEN ACTION = DECLINE
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- SECTION 3: ELEVAÇÃO E RAIOS DE BORDA -->
+      <section id="elevacao-radius" class="ds-section">
+        <h2 class="ds-section-title">✨ Elevação (Sombra) & Raios de Borda</h2>
+        <p class="ds-section-desc">Padrões de sombras para hierarquia de profundidade e cantos arredondados do sistema.</p>
+
+        <div class="ds-component-box">
+          <div class="ds-component-title">Sombras de Elevação</div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.25rem;">
+            <div style="padding: 1.25rem; background: var(--eq-white); border-radius: var(--eq-radius-md); box-shadow: var(--eq-shadow-xs); border: 1px solid var(--eq-slate-200); text-align: center;">
+              <strong style="font-size: 0.8125rem;">Shadow XS</strong>
+              <div style="font-size: 0.725rem; color: var(--eq-slate-500); margin-top: 0.2rem;">--eq-shadow-xs</div>
+            </div>
+            <div style="padding: 1.25rem; background: var(--eq-white); border-radius: var(--eq-radius-md); box-shadow: var(--eq-shadow-sm); border: 1px solid var(--eq-slate-200); text-align: center;">
+              <strong style="font-size: 0.8125rem;">Shadow SM</strong>
+              <div style="font-size: 0.725rem; color: var(--eq-slate-500); margin-top: 0.2rem;">--eq-shadow-sm</div>
+            </div>
+            <div style="padding: 1.25rem; background: var(--eq-white); border-radius: var(--eq-radius-md); box-shadow: var(--eq-shadow-md); border: 1px solid var(--eq-slate-200); text-align: center;">
+              <strong style="font-size: 0.8125rem;">Shadow MD</strong>
+              <div style="font-size: 0.725rem; color: var(--eq-slate-500); margin-top: 0.2rem;">--eq-shadow-md</div>
+            </div>
+            <div style="padding: 1.25rem; background: var(--eq-white); border-radius: var(--eq-radius-md); box-shadow: var(--eq-shadow-lg); border: 1px solid var(--eq-slate-200); text-align: center;">
+              <strong style="font-size: 0.8125rem;">Shadow LG</strong>
+              <div style="font-size: 0.725rem; color: var(--eq-slate-500); margin-top: 0.2rem;">--eq-shadow-lg</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ds-component-box">
+          <div class="ds-component-title">Raios de Borda (Corner Radii)</div>
+          <div class="ds-flex-wrap">
+            <div style="padding: 0.75rem 1.25rem; background: var(--eq-slate-100); border: 2px solid var(--eq-slate-400); border-radius: var(--eq-radius-xs); font-size: 0.8125rem; font-weight: var(--eq-font-weight-semibold);">
+              XS (4px)
+            </div>
+            <div style="padding: 0.75rem 1.25rem; background: var(--eq-slate-100); border: 2px solid var(--eq-slate-400); border-radius: var(--eq-radius-sm); font-size: 0.8125rem; font-weight: var(--eq-font-weight-semibold);">
+              SM (6px)
+            </div>
+            <div style="padding: 0.75rem 1.25rem; background: var(--eq-slate-100); border: 2px solid var(--eq-slate-400); border-radius: var(--eq-radius-md); font-size: 0.8125rem; font-weight: var(--eq-font-weight-semibold);">
+              MD (10px)
+            </div>
+            <div style="padding: 0.75rem 1.25rem; background: var(--eq-slate-100); border: 2px solid var(--eq-slate-400); border-radius: var(--eq-radius-lg); font-size: 0.8125rem; font-weight: var(--eq-font-weight-semibold);">
+              LG (14px)
+            </div>
+            <div style="padding: 0.75rem 1.25rem; background: var(--eq-slate-100); border: 2px solid var(--eq-slate-400); border-radius: var(--eq-radius-pill); font-size: 0.8125rem; font-weight: var(--eq-font-weight-semibold);">
+              Pill (9999px)
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- SECTION 4: BOTÕES & AÇÕES -->
+      <section id="botoes" class="ds-section">
+        <h2 class="ds-section-title">🔘 Botões & Ações Executivas</h2>
+        <p class="ds-section-desc">Variantes de botões com suporte a gradientes, elevação, estados interativos e ícones alinhados.</p>
+
+        <div class="ds-component-box">
+          <div class="ds-component-title">Variantes Principais</div>
+          <div class="ds-flex-wrap">
+            <button class="btn-primary">
+              <span>+</span> Criar Nova Regra
+            </button>
+            <button class="btn-secondary">
+              <span>🔍</span> Filtrar Resultados
+            </button>
+            <button class="btn-outline-teal">
+              <span>⚡</span> Testar no Simulador
+            </button>
+            <button class="btn-sim-header">
+              <span>📊</span> Painel de Riscos
+            </button>
+            <button class="btn-danger-outline">
+              <span>🗑️</span> Excluir Regra
+            </button>
+          </div>
+        </div>
+
+        <div class="ds-component-box">
+          <div class="ds-component-title">Tamanhos e Estados (Disabled)</div>
+          <div class="ds-flex-wrap">
+            <button class="btn-primary btn-sm">Botão Pequeno</button>
+            <button class="btn-primary">Botão Padrão</button>
+            <button class="btn-primary btn-lg">Botão Grande Executivo</button>
+            <button class="btn-primary" disabled>Desabilitado</button>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- SECTION 5: BADGES & STATUS -->
+      <section id="badges-tags" class="ds-section">
+        <h2 class="ds-section-title">🏷️ Badges, Tags & Indicadores de Status</h2>
+        <p class="ds-section-desc">Elementos visuais para estado de regras, níveis de risco e decisões de antifraude.</p>
+
+        <div class="ds-component-box">
+          <div class="ds-component-title">Status da Regra & Indicador em Tempo Real</div>
+          <div class="ds-flex-wrap">
+            <span class="badge-status badge-active">
+              <span class="pulse-dot"></span> Ativa
+            </span>
+            <span class="badge-status badge-inactive">
+              <span>●</span> Inativa
+            </span>
+            <span class="badge-status badge-ghost">
+              <span>👻</span> Regra Fantasma
+            </span>
+            <span class="kpi-live-tag">
+              <span class="pulse-dot"></span> LIVE ENGINE
+            </span>
+          </div>
+        </div>
+
+        <div class="ds-component-box">
+          <div class="ds-component-title">Indicadores de Escopo (Global vs Loja)</div>
+          <div class="ds-flex-wrap">
+            <div class="scope-indicator global">
+              <span class="indicator-tag">GLOBAL</span>
+              <span>Aplica a todas as lojas</span>
+            </div>
+            <div class="scope-indicator">
+              <span class="indicator-tag">LOJA</span>
+              <span>Loja Matriz #001</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ds-component-box">
+          <div class="ds-component-title">Nível de Risco & Ação Decisória</div>
+          <div class="ds-flex-wrap">
+            <span class="risk-tag risk-low">Risco Baixo</span>
+            <span class="risk-tag risk-medium">Risco Médio</span>
+            <span class="risk-tag risk-high">Risco Alto</span>
+            
+            <span class="action-decision-badge approve">APROVAR</span>
+            <span class="action-decision-badge review">REVISAR MANUAL</span>
+            <span class="action-decision-badge decline">NEGAR TRANSACÃO</span>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- SECTION 6: CARDS KPI -->
+      <section id="cards-kpi" class="ds-section">
+        <h2 class="ds-section-title">📊 Cards KPI & Métricas Executivas</h2>
+        <p class="ds-section-desc">Grid de estatísticas com indicadores visuais de alto impacto.</p>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon icon-total">📋</div>
+            <div class="stat-info">
+              <div class="stat-value">42</div>
+              <div class="stat-label">Total de Regras</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon icon-active">
+              <span class="pulse-dot"></span>
+            </div>
+            <div class="stat-info">
+              <div class="stat-value text-success">38</div>
+              <div class="stat-label">Regras Ativas</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon icon-global">🌐</div>
+            <div class="stat-info">
+              <div class="stat-value text-global">12</div>
+              <div class="stat-label">Regras Globais</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon icon-ghost">👻</div>
+            <div class="stat-info">
+              <div class="stat-value text-ghost">4</div>
+              <div class="stat-label">Regras Fantasma</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- SECTION 7: FORMULÁRIOS & CONTROLES -->
+      <section id="formularios" class="ds-section">
+        <h2 class="ds-section-title">📝 Formulários & Controles de Entrada</h2>
+        <p class="ds-section-desc">Entradas estruturadas para parametrização de regras e filtros.</p>
+
+        <div class="form-card">
+          <div class="form-header">
+            <h3 class="form-title">Dados Gerais da Regra</h3>
+            <p class="form-subtitle">Informe o identificador, nome e escopo de atuação do motor de regras.</p>
+          </div>
+
+          <div class="form-grid">
+            <div class="col-6">
+              <div class="form-group">
+                <label>Nome da Regra <span class="required">*</span></label>
+                <input type="text" class="form-control" placeholder="Ex: Bloqueio de Cartão com Vários CPFs" value="Bloqueio Rápido - High Score">
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="form-group">
+                <label>Nível de Prioridade</label>
+                <select class="form-control">
+                  <option>100 - Prioridade Alta (Executa Primeiro)</option>
+                  <option selected>200 - Prioridade Média</option>
+                  <option>300 - Prioridade Baixa</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-group">
+                <label>Descrição do Objetivo de Negócio</label>
+                <textarea class="form-control" placeholder="Descreva brevemente o motivo de criação desta regra antifraude...">Esta regra é aplicada no checkout para compras acima de R$ 2.000 com histórico de alteração recente de e-mail.</textarea>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label style="font-size: 0.84375rem; font-weight: var(--eq-font-weight-semibold); margin-bottom: 0.5rem; display: block;">Escopo da Regra</label>
+              <div class="radio-card-group">
+                <div class="radio-card selected" onclick="selectRadioCard(this)">
+                  <input type="radio" name="scopeEx" checked style="margin-top: 3px;">
+                  <div>
+                    <strong style="font-size: 0.875rem; display: block; color: var(--eq-slate-900);">Global (Rede Inteira)</strong>
+                    <span style="font-size: 0.75rem; color: var(--eq-slate-500);">Aplica a todas as lojas cadastradas no Konduto</span>
+                  </div>
+                </div>
+                <div class="radio-card" onclick="selectRadioCard(this)">
+                  <input type="radio" name="scopeEx" style="margin-top: 3px;">
+                  <div>
+                    <strong style="font-size: 0.875rem; display: block; color: var(--eq-slate-900);">Loja Específica</strong>
+                    <span style="font-size: 0.75rem; color: var(--eq-slate-500);">Vínculo exclusivo com uma unidade e-commerce</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- SECTION 8: CONSTRUTOR DE REGRAS -->
+      <section id="condition-builder" class="ds-section">
+        <h2 class="ds-section-title">⚡ Construtor de Condições de Regras (Rule Builder)</h2>
+        <p class="ds-section-desc">Interface dinâmica para composição de lógica booleana do motor Konduto.</p>
+
+        <div class="condition-builder-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <strong style="font-size: 0.9375rem; color: var(--eq-slate-900);">Blocos Condicionais (SE...)</strong>
+            <button class="btn-outline-teal btn-sm" onclick="addDemoCondition()">+ Adicionar Condição</button>
+          </div>
+
+          <div id="conditionList">
+            <div class="condition-row">
+              <span class="logic-operator-badge">SE</span>
+              <select class="form-control" style="flex: 2;">
+                <option selected>Score Konduto (0-1000)</option>
+                <option>Valor Total do Pedido (R$)</option>
+                <option>Tentativas de Cartão nas últimas 24h</option>
+              </select>
+              <select class="form-control" style="flex: 1.2;">
+                <option selected>Maior que (&gt;)</option>
+                <option>Igual a (==)</option>
+                <option>Menor que (&lt;)</option>
+              </select>
+              <input type="text" class="form-control" value="800" style="flex: 1.5;">
+              <button class="btn-remove-cond" title="Remover" onclick="this.closest('.condition-row').remove()">✖</button>
+            </div>
+
+            <div class="condition-row">
+              <span class="logic-operator-badge">E</span>
+              <select class="form-control" style="flex: 2;">
+                <option>Score Konduto (0-1000)</option>
+                <option selected>Valor Total do Pedido (R$)</option>
+                <option>Tentativas de Cartão nas últimas 24h</option>
+              </select>
+              <select class="form-control" style="flex: 1.2;">
+                <option selected>Maior ou igual (&gt;=)</option>
+                <option>Igual a (==)</option>
+              </select>
+              <input type="text" class="form-control" value="1500.00" style="flex: 1.5;">
+              <button class="btn-remove-cond" title="Remover" onclick="this.closest('.condition-row').remove()">✖</button>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--eq-slate-200); display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 0.8125rem; font-weight: var(--eq-font-weight-bold); color: var(--eq-slate-700);">Ação a Tomar quando Disparar:</span>
+            <div style="display: flex; gap: 0.75rem;">
+              <span class="action-decision-badge decline">NEGAR TRANSACÃO</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- SECTION 9: TABELAS DE DADOS -->
+      <section id="tabelas" class="ds-section">
+        <h2 class="ds-section-title">📋 Tabela Executiva de Regras Antifraude</h2>
+        <p class="ds-section-desc">Tabela de alta densidade com suporte a status, escopo, ordenação e barra de paginação.</p>
+
+        <div class="table-responsive">
+          <table class="executive-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome da Regra</th>
+                <th>Escopo</th>
+                <th>Risco</th>
+                <th>Decisão Final</th>
+                <th>Status</th>
+                <th style="text-align: right;">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>#R-101</strong></td>
+                <td>
+                  <div style="font-weight: var(--eq-font-weight-semibold); color: var(--eq-slate-900);">High Score + Valor Alto</div>
+                  <div style="font-size: 0.75rem; color: var(--eq-slate-500);">Bloqueia compras &gt; R$ 1.500 com score &gt; 800</div>
+                </td>
+                <td><span class="scope-indicator global" style="padding: 0.2rem 0.6rem; font-size: 0.75rem;"><span class="indicator-tag">GLOBAL</span></span></td>
+                <td><span class="risk-tag risk-high">Alto</span></td>
+                <td><span class="action-decision-badge decline" style="padding: 0.2rem 0.5rem; font-size: 0.725rem;">NEGAR</span></td>
+                <td><span class="badge-status badge-active"><span class="pulse-dot"></span> Ativa</span></td>
+                <td style="text-align: right;">
+                  <button class="btn-secondary btn-sm">Editar</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td><strong>#R-102</strong></td>
+                <td>
+                  <div style="font-weight: var(--eq-font-weight-semibold); color: var(--eq-slate-900);">Múltiplos Cartões por IP</div>
+                  <div style="font-size: 0.75rem; color: var(--eq-slate-500);">Mais de 3 cartões em menos de 10 minutos</div>
+                </td>
+                <td><span class="scope-indicator" style="padding: 0.2rem 0.6rem; font-size: 0.75rem;"><span class="indicator-tag">LOJA</span> Matriz</span></td>
+                <td><span class="risk-tag risk-medium">Médio</span></td>
+                <td><span class="action-decision-badge review" style="padding: 0.2rem 0.5rem; font-size: 0.725rem;">REVISAR</span></td>
+                <td><span class="badge-status badge-active"><span class="pulse-dot"></span> Ativa</span></td>
+                <td style="text-align: right;">
+                  <button class="btn-secondary btn-sm">Editar</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td><strong>#R-103</strong></td>
+                <td>
+                  <div style="font-weight: var(--eq-font-weight-semibold); color: var(--eq-slate-900);">Monitoramento Passivo Score 900</div>
+                  <div style="font-size: 0.75rem; color: var(--eq-slate-500);">Regra fantasma para auditoria sem bloqueio</div>
+                </td>
+                <td><span class="scope-indicator global" style="padding: 0.2rem 0.6rem; font-size: 0.75rem;"><span class="indicator-tag">GLOBAL</span></span></td>
+                <td><span class="risk-tag risk-low">Baixo</span></td>
+                <td><span class="action-decision-badge approve" style="padding: 0.2rem 0.5rem; font-size: 0.725rem;">APROVAR</span></td>
+                <td><span class="badge-status badge-ghost">👻 Fantasma</span></td>
+                <td style="text-align: right;">
+                  <button class="btn-secondary btn-sm">Editar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="table-pagination">
+            <div>Exibindo <strong>1 - 3</strong> de <strong>42</strong> regras ativas</div>
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+              <button class="btn-secondary btn-sm" disabled>Anterior</button>
+              <span style="font-weight: var(--eq-font-weight-bold); font-size: 0.8125rem; padding: 0 0.4rem;">Página 1 de 14</span>
+              <button class="btn-secondary btn-sm">Próxima</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- SECTION 10: HEADER & TOASTS -->
+      <section id="header-toasts" class="ds-section">
+        <h2 class="ds-section-title">🖥️ Header da Aplicação & Banners de Toast</h2>
+        <p class="ds-section-desc">Estrutura de topo oficial do EBV Konduto com barra de accent e notificações.</p>
+
+        <div class="ds-component-box" style="padding: 0; overflow: hidden;">
+          <header class="app-header">
+            <div class="top-accent-line"></div>
+            
+            <!-- Toast Banner Demo -->
+            <div class="toast-banner toast-success">
+              <div style="display: inline-flex; align-items: center; gap: 0.6rem;">
+                <span class="toast-tag" style="background: rgba(255,255,255,0.2); padding: 0.15rem 0.4rem; border-radius: 3px; font-size: 0.65rem;">SUCESSO</span>
+                <span>Regra <strong>#R-101 (High Score)</strong> atualizada e sincronizada com a API Konduto!</span>
+              </div>
+            </div>
+
+            <div class="top-bar">
+              <div class="brand-section">
+                <a href="#" class="brand-logo">
+                  <div class="logo-group">
+                    <span class="logo-primary">EBV KONDUTO</span>
+                  </div>
+                  <div class="brand-badge-wrapper">
+                    <span class="brand-badge">Gestão Antifraude Executivo</span>
+                  </div>
+                </a>
+              </div>
+
+              <div class="global-search-container">
+                <input type="text" class="global-search-input" placeholder="Buscar regra por ID, nome ou padrão...">
+                <span class="search-shortcut">Ctrl K</span>
+              </div>
+
+              <div class="user-store-section">
+                <button class="btn-sim-header" onclick="toggleSimulatorModal(true)">
+                  <span>⚡</span> Simulador
+                </button>
+              </div>
+            </div>
+          </header>
+        </div>
+      </section>
+
+
+      <!-- SECTION 11: MODAIS & SIMULADOR -->
+      <section id="modais" class="ds-section">
+        <h2 class="ds-section-title">🪟 Modais, Overlays & Simulador ao Vivo</h2>
+        <p class="ds-section-desc">Clique no botão abaixo para abrir a janela modal interativa do Simulador Antifraude.</p>
+
+        <div class="ds-component-box" style="text-align: center; padding: 3rem 2rem;">
+          <h3 style="margin-top: 0; font-size: 1.2rem; font-weight: var(--eq-font-weight-bold);">Simulador de Decisão Antifraude</h3>
+          <p style="color: var(--eq-slate-600); max-width: 500px; margin: 0.5rem auto 1.5rem auto; font-size: 0.875rem;">
+            Insira dados sintéticos de uma transação (valor, score, IP, cartões) e veja as regras sendo avaliadas em tempo real.
+          </p>
+          <button class="btn-primary btn-lg" onclick="toggleSimulatorModal(true)">
+            <span>⚡</span> Abrir Modal de Simulação
+          </button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+
+  <!-- SIMULATOR MODAL BACKDROP -->
+  <div id="simulatorModalBackdrop" class="simulator-backdrop" style="display: none;">
+    <div class="simulator-modal">
+      <div class="modal-header">
+        <div class="title-wrapper">
+          <span class="modal-icon">⚡</span>
+          <div>
+            <h2>Simulador de Regras Antifraude - EBV Konduto</h2>
+            <p>Teste o comportamento do motor em tempo real antes de ativar em produção</p>
+          </div>
+        </div>
+        <button class="close-btn" onclick="toggleSimulatorModal(false)">✖</button>
+      </div>
+
+      <div class="modal-body">
+        <div style="display: grid; grid-template-columns: 380px 1fr; gap: 1.5rem;">
+          
+          <!-- Inputs Column -->
+          <div style="background-color: var(--eq-slate-50); padding: 1.25rem; border-radius: var(--eq-radius-md); border: 1px solid var(--eq-slate-200);">
+            <strong style="font-size: 0.84375rem; color: var(--eq-slate-900); display: block; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">1. Dados da Transação Teste</strong>
+            
+            <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+              <div class="form-group">
+                <label>Score Konduto (0 a 1000)</label>
+                <input id="simScore" type="number" class="form-control" value="850" oninput="runSimCalculation()">
+              </div>
+              <div class="form-group">
+                <label>Valor Total do Pedido (R$)</label>
+                <input id="simAmount" type="number" class="form-control" value="1800.00" oninput="runSimCalculation()">
+              </div>
+              <div class="form-group">
+                <label>Tentativas de Cartão (24h)</label>
+                <input id="simCards" type="number" class="form-control" value="4" oninput="runSimCalculation()">
+              </div>
+            </div>
+          </div>
+
+          <!-- Decision Output Column -->
+          <div>
+            <strong style="font-size: 0.84375rem; color: var(--eq-slate-900); display: block; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">2. Resultado da Avaliação</strong>
+
+            <div id="decisionResultCard" class="decision-card" style="border-left-color: var(--eq-red-primary);">
+              <div style="font-size: 0.6875rem; font-weight: var(--eq-font-weight-bold); color: var(--eq-slate-500); text-transform: uppercase;">Decisão Final Recomendada</div>
+              <div style="margin: 0.5rem 0;">
+                <span id="decisionBadge" class="action-decision-badge decline" style="font-size: 1rem; padding: 0.5rem 1rem;">NEGAR TRANSAÇÃO</span>
+              </div>
+              <p id="decisionReason" style="font-size: 0.84375rem; color: var(--eq-slate-700); margin: 0;">
+                Disparado pela Regra <strong>#R-101 (High Score + Valor Alto)</strong>: Score &gt; 800 e Valor &gt; R$ 1.500.
+              </p>
+            </div>
+
+            <div style="margin-top: 1.5rem; background: var(--eq-slate-950); color: var(--eq-slate-200); padding: 1rem; border-radius: var(--eq-radius-sm); font-family: var(--eq-font-mono); font-size: 0.75rem;">
+              <div style="color: var(--eq-slate-500); margin-bottom: 0.4rem;">// Log de Execução da Engine:</div>
+              <div id="simLogText">[17:15:02] Transação iniciada: Score=850, Pedido=R$1800.00<br>[17:15:02] Avaliando Regra #R-101... [DISPAROU - DECLINE]<br>[17:15:02] Processamento concluído em 1.2ms.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- INTERACTIVE JS SCRIPT -->
+  <script>
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(function() {
+        const toast = document.getElementById('copyToast');
+        toast.textContent = 'Copiado "' + text + '" para a área de transferência!';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+      });
+    }
+
+    function toggleSimulatorModal(show) {
+      const modal = document.getElementById('simulatorModalBackdrop');
+      modal.style.display = show ? 'flex' : 'none';
+    }
+
+    function selectRadioCard(element) {
+      const cards = element.parentElement.querySelectorAll('.radio-card');
+      cards.forEach(c => {
+        c.classList.remove('selected');
+        c.querySelector('input[type="radio"]').checked = false;
+      });
+      element.classList.add('selected');
+      element.querySelector('input[type="radio"]').checked = true;
+    }
+
+    function addDemoCondition() {
+      const container = document.getElementById('conditionList');
+      const newRow = document.createElement('div');
+      newRow.className = 'condition-row';
+      newRow.innerHTML = `
+        <span class="logic-operator-badge">E</span>
+        <select class="form-control" style="flex: 2;">
+          <option>Score Konduto (0-1000)</option>
+          <option>Valor Total do Pedido (R$)</option>
+          <option selected>Tentativas de Cartão nas últimas 24h</option>
+        </select>
+        <select class="form-control" style="flex: 1.2;">
+          <option selected>Maior que (&gt;)</option>
+          <option>Igual a (==)</option>
+        </select>
+        <input type="text" class="form-control" value="2" style="flex: 1.5;">
+        <button class="btn-remove-cond" title="Remover" onclick="this.closest('.condition-row').remove()">✖</button>
+      `;
+      container.appendChild(newRow);
+    }
+
+    function runSimCalculation() {
+      const score = parseFloat(document.getElementById('simScore').value) || 0;
+      const amount = parseFloat(document.getElementById('simAmount').value) || 0;
+      const cards = parseFloat(document.getElementById('simCards').value) || 0;
+
+      const badge = document.getElementById('decisionBadge');
+      const reason = document.getElementById('decisionReason');
+      const card = document.getElementById('decisionResultCard');
+      const log = document.getElementById('simLogText');
+
+      const now = new Date().toLocaleTimeString();
+
+      if (score >= 800 || cards >= 5) {
+        badge.className = 'action-decision-badge decline';
+        badge.textContent = 'NEGAR TRANSAÇÃO';
+        card.style.borderLeftColor = 'var(--eq-red-primary)';
+        reason.innerHTML = 'Disparado por Regra de Alto Risco: Score &ge; 800 ou Múltiplos Cartões (&ge; 5).';
+        log.innerHTML = `[${now}] Transação: Score=${score}, Valor=R$${amount.toFixed(2)}, Cartões=${cards}<br>[${now}] Regra #R-101 DISPAROU: Risco Elevado [NEGAR]`;
+      } else if (score >= 500 || amount > 1000) {
+        badge.className = 'action-decision-badge review';
+        badge.textContent = 'REVISAR MANUAL';
+        card.style.borderLeftColor = 'var(--eq-warning-yellow)';
+        reason.innerHTML = 'Disparado por Regra de Risco Médio: Pedido acima de R$ 1.000 ou Score moderado.';
+        log.innerHTML = `[${now}] Transação: Score=${score}, Valor=R$${amount.toFixed(2)}, Cartões=${cards}<br>[${now}] Regra #R-102 DISPAROU: Análise Manual [REVISAR]`;
+      } else {
+        badge.className = 'action-decision-badge approve';
+        badge.textContent = 'APROVAR TRANSAÇÃO';
+        card.style.borderLeftColor = 'var(--eq-success-green)';
+        reason.innerHTML = 'Nenhuma regra de bloqueio ativada. Transação dentro dos parâmetros normais.';
+        log.innerHTML = `[${now}] Transação: Score=${score}, Valor=R$${amount.toFixed(2)}, Cartões=${cards}<br>[${now}] Nenhuma infração detectada. [APROVAR]`;
+      }
+    }
+  </script>
+</body>
+</html>
