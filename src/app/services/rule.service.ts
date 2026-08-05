@@ -50,7 +50,7 @@ export class RuleService {
     { id: 'param-10', name: 'Score de Risco Antifraude (0-100)', operators: ['>', '>=', '<', '<='], defaultValue: 80 }
   ]);
 
-  // Initial Mock Rules based on Konduto portal screenshots & specifications
+  // Initial Mock Rules based on antifraud portal specifications
   private readonly defaultRules: Rule[] = [
     {
       id: 'rule-101',
@@ -218,7 +218,7 @@ export class RuleService {
   constructor() {}
 
   private loadRules(): Rule[] {
-    const saved = localStorage.getItem('antifraud_rules') || localStorage.getItem('konduto_rules');
+    const saved = localStorage.getItem('antifraud_rules');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);

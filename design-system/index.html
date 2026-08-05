@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Executive Antifraud Design System - EBV Konduto</title>
+  <title>Executive Antifraud Design System</title>
   <link rel="stylesheet" href="styles.css">
   <style>
     /* Toast notification for copy feedback */
@@ -11,14 +11,14 @@
       position: fixed;
       bottom: 24px;
       right: 24px;
-      background-color: var(--eq-slate-900);
-      color: var(--eq-white);
+      background-color: var(--af-slate-900);
+      color: var(--af-white);
       padding: 12px 20px;
-      border-radius: var(--eq-radius-sm);
-      border-left: 4px solid var(--eq-blue-light);
-      box-shadow: var(--eq-shadow-lg);
+      border-radius: var(--af-radius-sm);
+      border-left: 4px solid var(--af-blue-light);
+      box-shadow: var(--af-shadow-lg);
       font-size: 0.8125rem;
-      font-weight: var(--eq-font-weight-semibold);
+      font-weight: var(--af-font-weight-semibold);
       z-index: 2000;
       display: opacity;
       opacity: 0;
@@ -43,7 +43,7 @@
     <aside class="ds-sidebar">
       <div class="ds-sidebar-brand">
         <div class="ds-brand-title">
-          <span style="color: var(--eq-red-primary); font-size: 1.3rem;">●</span> EBV Konduto DS
+          <span style="color: var(--af-red-primary); font-size: 1.3rem;">●</span> Antifraude DS
         </div>
         <div class="ds-brand-subtitle">Executive Antifraud v1.0</div>
       </div>
@@ -70,17 +70,17 @@
     <main class="ds-main">
 
       <!-- Hero Banner -->
-      <div style="margin-bottom: 2.5rem; background: linear-gradient(135deg, var(--eq-slate-900) 0%, var(--eq-slate-850) 100%); color: var(--eq-white); padding: 2.5rem; border-radius: var(--eq-radius-lg); border-bottom: 4px solid var(--eq-red-primary); box-shadow: var(--eq-shadow-lg);">
+      <div style="margin-bottom: 2.5rem; background: linear-gradient(135deg, var(--af-slate-900) 0%, var(--af-slate-850) 100%); color: var(--af-white); padding: 2.5rem; border-radius: var(--af-radius-lg); border-bottom: 4px solid var(--af-red-primary); box-shadow: var(--af-shadow-lg);">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
           <div>
-            <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.1); padding: 0.25rem 0.75rem; border-radius: var(--eq-radius-pill); font-size: 0.75rem; font-weight: var(--eq-font-weight-bold); letter-spacing: 0.5px; margin-bottom: 1rem;">
-              <span>ANGULAR 20+</span> • <span>EQUIFAX DESIGN SYSTEM</span>
+            <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.1); padding: 0.25rem 0.75rem; border-radius: var(--af-radius-pill); font-size: 0.75rem; font-weight: var(--af-font-weight-bold); letter-spacing: 0.5px; margin-bottom: 1rem;">
+              <span>ANGULAR 20+</span> • <span>ANTIFRAUD DESIGN SYSTEM</span>
             </div>
-            <h1 style="font-size: 2.2rem; font-weight: var(--eq-font-weight-extrabold); margin: 0 0 0.5rem 0; letter-spacing: -0.5px;">
+            <h1 style="font-size: 2.2rem; font-weight: var(--af-font-weight-extrabold); margin: 0 0 0.5rem 0; letter-spacing: -0.5px;">
               Executive Antifraud Design System
             </h1>
-            <p style="font-size: 1rem; color: var(--eq-slate-300); margin: 0; max-width: 680px; line-height: 1.6;">
-              Catalógo e guia de estilos extraído do ecossistema EBV-Konduto. Inclui tokens de design, componentes corporativos de prevenção a fraudes, tipografia e bibliotecas de interação.
+            <p style="font-size: 1rem; color: var(--af-slate-300); margin: 0; max-width: 680px; line-height: 1.6;">
+              Catalógo e guia de estilos do portal antifraude. Inclui tokens de design, componentes corporativos de prevenção a fraudes, tipografia e bibliotecas de interação.
             </p>
           </div>
           <button class="btn-sim-header" onclick="toggleSimulatorModal(true)" style="padding: 0.75rem 1.25rem; font-size: 0.875rem;">
@@ -99,35 +99,35 @@
         <div class="ds-component-box">
           <div class="ds-component-title">Brand Primary - Vermelho Executivo</div>
           <div class="color-swatch-grid">
-            <div class="color-swatch-card" onclick="copyToClipboard('--eq-red-primary')">
-              <div class="color-box" style="background-color: var(--eq-red-primary);"></div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--af-red-primary')">
+              <div class="color-box" style="background-color: var(--af-red-primary);"></div>
               <div class="color-info">
                 <div class="color-name">Red Primary</div>
-                <div class="color-var">--eq-red-primary</div>
+                <div class="color-var">--af-red-primary</div>
                 <div class="color-hex">#9E1C33</div>
               </div>
             </div>
-            <div class="color-swatch-card" onclick="copyToClipboard('--eq-red-dark')">
-              <div class="color-box" style="background-color: var(--eq-red-dark);"></div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--af-red-dark')">
+              <div class="color-box" style="background-color: var(--af-red-dark);"></div>
               <div class="color-info">
                 <div class="color-name">Red Dark</div>
-                <div class="color-var">--eq-red-dark</div>
+                <div class="color-var">--af-red-dark</div>
                 <div class="color-hex">#7A1426</div>
               </div>
             </div>
-            <div class="color-swatch-card" onclick="copyToClipboard('--eq-red-light')">
-              <div class="color-box" style="background-color: var(--eq-red-light);"></div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--af-red-light')">
+              <div class="color-box" style="background-color: var(--af-red-light);"></div>
               <div class="color-info">
                 <div class="color-name">Red Light</div>
-                <div class="color-var">--eq-red-light</div>
+                <div class="color-var">--af-red-light</div>
                 <div class="color-hex">#C8102E</div>
               </div>
             </div>
-            <div class="color-swatch-card" onclick="copyToClipboard('--eq-red-soft')">
-              <div class="color-box" style="background-color: var(--eq-red-soft); border-bottom: 1px solid var(--eq-slate-200);"></div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--af-red-soft')">
+              <div class="color-box" style="background-color: var(--af-red-soft); border-bottom: 1px solid var(--af-slate-200);"></div>
               <div class="color-info">
                 <div class="color-name">Red Soft</div>
-                <div class="color-var">--eq-red-soft</div>
+                <div class="color-var">--af-red-soft</div>
                 <div class="color-hex">#FDF2F4</div>
               </div>
             </div>
@@ -138,35 +138,35 @@
         <div class="ds-component-box">
           <div class="ds-component-title">Brand Secondary & Destaques (Blue/Teal & Orange)</div>
           <div class="color-swatch-grid">
-            <div class="color-swatch-card" onclick="copyToClipboard('--eq-blue-primary')">
-              <div class="color-box" style="background-color: var(--eq-blue-primary);"></div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--af-blue-primary')">
+              <div class="color-box" style="background-color: var(--af-blue-primary);"></div>
               <div class="color-info">
                 <div class="color-name">Blue Primary</div>
-                <div class="color-var">--eq-blue-primary</div>
+                <div class="color-var">--af-blue-primary</div>
                 <div class="color-hex">#007298</div>
               </div>
             </div>
-            <div class="color-swatch-card" onclick="copyToClipboard('--eq-blue-dark')">
-              <div class="color-box" style="background-color: var(--eq-blue-dark);"></div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--af-blue-dark')">
+              <div class="color-box" style="background-color: var(--af-blue-dark);"></div>
               <div class="color-info">
                 <div class="color-name">Blue Dark</div>
-                <div class="color-var">--eq-blue-dark</div>
+                <div class="color-var">--af-blue-dark</div>
                 <div class="color-hex">#005B7A</div>
               </div>
             </div>
-            <div class="color-swatch-card" onclick="copyToClipboard('--eq-blue-soft')">
-              <div class="color-box" style="background-color: var(--eq-blue-soft); border-bottom: 1px solid var(--eq-slate-200);"></div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--af-blue-soft')">
+              <div class="color-box" style="background-color: var(--af-blue-soft); border-bottom: 1px solid var(--af-slate-200);"></div>
               <div class="color-info">
                 <div class="color-name">Blue Soft</div>
-                <div class="color-var">--eq-blue-soft</div>
+                <div class="color-var">--af-blue-soft</div>
                 <div class="color-hex">#E0F2FE</div>
               </div>
             </div>
-            <div class="color-swatch-card" onclick="copyToClipboard('--eq-orange-primary')">
-              <div class="color-box" style="background-color: var(--eq-orange-primary);"></div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--af-orange-primary')">
+              <div class="color-box" style="background-color: var(--af-orange-primary);"></div>
               <div class="color-info">
                 <div class="color-name">Orange Primary</div>
-                <div class="color-var">--eq-orange-primary</div>
+                <div class="color-var">--af-orange-primary</div>
                 <div class="color-hex">#F86800</div>
               </div>
             </div>
@@ -177,27 +177,27 @@
         <div class="ds-component-box">
           <div class="ds-component-title">Cores Semânticas de Status & Feedback</div>
           <div class="color-swatch-grid">
-            <div class="color-swatch-card" onclick="copyToClipboard('--eq-success-green')">
-              <div class="color-box" style="background-color: var(--eq-success-green);"></div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--af-success-green')">
+              <div class="color-box" style="background-color: var(--af-success-green);"></div>
               <div class="color-info">
                 <div class="color-name">Success Green</div>
-                <div class="color-var">--eq-success-green</div>
+                <div class="color-var">--af-success-green</div>
                 <div class="color-hex">#1B7A30</div>
               </div>
             </div>
-            <div class="color-swatch-card" onclick="copyToClipboard('--eq-warning-yellow')">
-              <div class="color-box" style="background-color: var(--eq-warning-yellow);"></div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--af-warning-yellow')">
+              <div class="color-box" style="background-color: var(--af-warning-yellow);"></div>
               <div class="color-info">
                 <div class="color-name">Warning Yellow</div>
-                <div class="color-var">--eq-warning-yellow</div>
+                <div class="color-var">--af-warning-yellow</div>
                 <div class="color-hex">#D97706</div>
               </div>
             </div>
-            <div class="color-swatch-card" onclick="copyToClipboard('--eq-danger-red')">
-              <div class="color-box" style="background-color: var(--eq-danger-red);"></div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--af-danger-red')">
+              <div class="color-box" style="background-color: var(--af-danger-red);"></div>
               <div class="color-info">
                 <div class="color-name">Danger Red</div>
-                <div class="color-var">--eq-danger-red</div>
+                <div class="color-var">--af-danger-red</div>
                 <div class="color-hex">#9E1C33</div>
               </div>
             </div>
@@ -208,29 +208,29 @@
         <div class="ds-component-box">
           <div class="ds-component-title">Escala de Neutros Executive Slate</div>
           <div class="color-swatch-grid">
-            <div class="color-swatch-card" onclick="copyToClipboard('--eq-slate-950')">
-              <div class="color-box" style="background-color: var(--eq-slate-950);"></div>
-              <div class="color-info"><div class="color-name">Slate 950</div><div class="color-var">--eq-slate-950</div><div class="color-hex">#0F1215</div></div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--af-slate-950')">
+              <div class="color-box" style="background-color: var(--af-slate-950);"></div>
+              <div class="color-info"><div class="color-name">Slate 950</div><div class="color-var">--af-slate-950</div><div class="color-hex">#0F1215</div></div>
             </div>
-            <div class="color-swatch-card" onclick="copyToClipboard('--eq-slate-900')">
-              <div class="color-box" style="background-color: var(--eq-slate-900);"></div>
-              <div class="color-info"><div class="color-name">Slate 900</div><div class="color-var">--eq-slate-900</div><div class="color-hex">#181C20</div></div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--af-slate-900')">
+              <div class="color-box" style="background-color: var(--af-slate-900);"></div>
+              <div class="color-info"><div class="color-name">Slate 900</div><div class="color-var">--af-slate-900</div><div class="color-hex">#181C20</div></div>
             </div>
-            <div class="color-swatch-card" onclick="copyToClipboard('--eq-slate-700')">
-              <div class="color-box" style="background-color: var(--eq-slate-700);"></div>
-              <div class="color-info"><div class="color-name">Slate 700</div><div class="color-var">--eq-slate-700</div><div class="color-hex">#333E48</div></div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--af-slate-700')">
+              <div class="color-box" style="background-color: var(--af-slate-700);"></div>
+              <div class="color-info"><div class="color-name">Slate 700</div><div class="color-var">--af-slate-700</div><div class="color-hex">#333E48</div></div>
             </div>
-            <div class="color-swatch-card" onclick="copyToClipboard('--eq-slate-500')">
-              <div class="color-box" style="background-color: var(--eq-slate-500);"></div>
-              <div class="color-info"><div class="color-name">Slate 500</div><div class="color-var">--eq-slate-500</div><div class="color-hex">#64748B</div></div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--af-slate-500')">
+              <div class="color-box" style="background-color: var(--af-slate-500);"></div>
+              <div class="color-info"><div class="color-name">Slate 500</div><div class="color-var">--af-slate-500</div><div class="color-hex">#64748B</div></div>
             </div>
-            <div class="color-swatch-card" onclick="copyToClipboard('--eq-slate-300')">
-              <div class="color-box" style="background-color: var(--eq-slate-300);"></div>
-              <div class="color-info"><div class="color-name">Slate 300</div><div class="color-var">--eq-slate-300</div><div class="color-hex">#CBD5E1</div></div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--af-slate-300')">
+              <div class="color-box" style="background-color: var(--af-slate-300);"></div>
+              <div class="color-info"><div class="color-name">Slate 300</div><div class="color-var">--af-slate-300</div><div class="color-hex">#CBD5E1</div></div>
             </div>
-            <div class="color-swatch-card" onclick="copyToClipboard('--eq-slate-100')">
-              <div class="color-box" style="background-color: var(--eq-slate-100); border-bottom: 1px solid var(--eq-slate-200);"></div>
-              <div class="color-info"><div class="color-name">Slate 100</div><div class="color-var">--eq-slate-100</div><div class="color-hex">#F1F5F9</div></div>
+            <div class="color-swatch-card" onclick="copyToClipboard('--af-slate-100')">
+              <div class="color-box" style="background-color: var(--af-slate-100); border-bottom: 1px solid var(--af-slate-200);"></div>
+              <div class="color-info"><div class="color-name">Slate 100</div><div class="color-var">--af-slate-100</div><div class="color-hex">#F1F5F9</div></div>
             </div>
           </div>
         </div>
@@ -245,30 +245,30 @@
         <div class="ds-component-box">
           <div style="display: flex; flex-direction: column; gap: 1.25rem;">
             <div>
-              <span style="font-size: 0.75rem; color: var(--eq-slate-500); font-weight: var(--eq-font-weight-bold); text-transform: uppercase;">Heading 1 (1.65rem / 26px - Extrabold 800)</span>
-              <h1 style="font-size: 1.65rem; font-weight: var(--eq-font-weight-extrabold); color: var(--eq-slate-900); margin: 0.25rem 0 0 0; letter-spacing: -0.3px;">
+              <span style="font-size: 0.75rem; color: var(--af-slate-500); font-weight: var(--af-font-weight-bold); text-transform: uppercase;">Heading 1 (1.65rem / 26px - Extrabold 800)</span>
+              <h1 style="font-size: 1.65rem; font-weight: var(--af-font-weight-extrabold); color: var(--af-slate-900); margin: 0.25rem 0 0 0; letter-spacing: -0.3px;">
                 Gestão de Regras Antifraude Executivo
               </h1>
             </div>
-            <hr style="border: 0; border-top: 1px solid var(--eq-slate-200); margin: 0;">
+            <hr style="border: 0; border-top: 1px solid var(--af-slate-200); margin: 0;">
             <div>
-              <span style="font-size: 0.75rem; color: var(--eq-slate-500); font-weight: var(--eq-font-weight-bold); text-transform: uppercase;">Heading 2 (1.25rem / 20px - Bold 700)</span>
-              <h2 style="font-size: 1.25rem; font-weight: var(--eq-font-weight-bold); color: var(--eq-slate-900); margin: 0.25rem 0 0 0;">
+              <span style="font-size: 0.75rem; color: var(--af-slate-500); font-weight: var(--af-font-weight-bold); text-transform: uppercase;">Heading 2 (1.25rem / 20px - Bold 700)</span>
+              <h2 style="font-size: 1.25rem; font-weight: var(--af-font-weight-bold); color: var(--af-slate-900); margin: 0.25rem 0 0 0;">
                 Parâmetros e Condições de Disparo da Regra
               </h2>
             </div>
-            <hr style="border: 0; border-top: 1px solid var(--eq-slate-200); margin: 0;">
+            <hr style="border: 0; border-top: 1px solid var(--af-slate-200); margin: 0;">
             <div>
-              <span style="font-size: 0.75rem; color: var(--eq-slate-500); font-weight: var(--eq-font-weight-bold); text-transform: uppercase;">Body Text (0.875rem / 14px - Regular 400)</span>
-              <p style="font-size: 0.875rem; color: var(--eq-slate-700); margin: 0.25rem 0 0 0;">
+              <span style="font-size: 0.75rem; color: var(--af-slate-500); font-weight: var(--af-font-weight-bold); text-transform: uppercase;">Body Text (0.875rem / 14px - Regular 400)</span>
+              <p style="font-size: 0.875rem; color: var(--af-slate-700); margin: 0.25rem 0 0 0;">
                 As regras cadastradas nesta central são processadas em tempo real durante o checkout das transações do e-commerce. A engine valida padrões de risco antes da captura final do pagamento.
               </p>
             </div>
-            <hr style="border: 0; border-top: 1px solid var(--eq-slate-200); margin: 0;">
+            <hr style="border: 0; border-top: 1px solid var(--af-slate-200); margin: 0;">
             <div>
-              <span style="font-size: 0.75rem; color: var(--eq-slate-500); font-weight: var(--eq-font-weight-bold); text-transform: uppercase;">Code / Expression Font (JetBrains Mono)</span>
+              <span style="font-size: 0.75rem; color: var(--af-slate-500); font-weight: var(--af-font-weight-bold); text-transform: uppercase;">Code / Expression Font (JetBrains Mono)</span>
               <div class="code-block">
-                RULE_049: IF (score_konduto &gt; 850 AND value_brl &gt; 1500) THEN ACTION = DECLINE
+                RULE_049: IF (score_risco &gt; 850 AND value_brl &gt; 1500) THEN ACTION = DECLINE
               </div>
             </div>
           </div>
@@ -284,21 +284,21 @@
         <div class="ds-component-box">
           <div class="ds-component-title">Sombras de Elevação</div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.25rem;">
-            <div style="padding: 1.25rem; background: var(--eq-white); border-radius: var(--eq-radius-md); box-shadow: var(--eq-shadow-xs); border: 1px solid var(--eq-slate-200); text-align: center;">
+            <div style="padding: 1.25rem; background: var(--af-white); border-radius: var(--af-radius-md); box-shadow: var(--af-shadow-xs); border: 1px solid var(--af-slate-200); text-align: center;">
               <strong style="font-size: 0.8125rem;">Shadow XS</strong>
-              <div style="font-size: 0.725rem; color: var(--eq-slate-500); margin-top: 0.2rem;">--eq-shadow-xs</div>
+              <div style="font-size: 0.725rem; color: var(--af-slate-500); margin-top: 0.2rem;">--af-shadow-xs</div>
             </div>
-            <div style="padding: 1.25rem; background: var(--eq-white); border-radius: var(--eq-radius-md); box-shadow: var(--eq-shadow-sm); border: 1px solid var(--eq-slate-200); text-align: center;">
+            <div style="padding: 1.25rem; background: var(--af-white); border-radius: var(--af-radius-md); box-shadow: var(--af-shadow-sm); border: 1px solid var(--af-slate-200); text-align: center;">
               <strong style="font-size: 0.8125rem;">Shadow SM</strong>
-              <div style="font-size: 0.725rem; color: var(--eq-slate-500); margin-top: 0.2rem;">--eq-shadow-sm</div>
+              <div style="font-size: 0.725rem; color: var(--af-slate-500); margin-top: 0.2rem;">--af-shadow-sm</div>
             </div>
-            <div style="padding: 1.25rem; background: var(--eq-white); border-radius: var(--eq-radius-md); box-shadow: var(--eq-shadow-md); border: 1px solid var(--eq-slate-200); text-align: center;">
+            <div style="padding: 1.25rem; background: var(--af-white); border-radius: var(--af-radius-md); box-shadow: var(--af-shadow-md); border: 1px solid var(--af-slate-200); text-align: center;">
               <strong style="font-size: 0.8125rem;">Shadow MD</strong>
-              <div style="font-size: 0.725rem; color: var(--eq-slate-500); margin-top: 0.2rem;">--eq-shadow-md</div>
+              <div style="font-size: 0.725rem; color: var(--af-slate-500); margin-top: 0.2rem;">--af-shadow-md</div>
             </div>
-            <div style="padding: 1.25rem; background: var(--eq-white); border-radius: var(--eq-radius-md); box-shadow: var(--eq-shadow-lg); border: 1px solid var(--eq-slate-200); text-align: center;">
+            <div style="padding: 1.25rem; background: var(--af-white); border-radius: var(--af-radius-md); box-shadow: var(--af-shadow-lg); border: 1px solid var(--af-slate-200); text-align: center;">
               <strong style="font-size: 0.8125rem;">Shadow LG</strong>
-              <div style="font-size: 0.725rem; color: var(--eq-slate-500); margin-top: 0.2rem;">--eq-shadow-lg</div>
+              <div style="font-size: 0.725rem; color: var(--af-slate-500); margin-top: 0.2rem;">--af-shadow-lg</div>
             </div>
           </div>
         </div>
@@ -306,19 +306,19 @@
         <div class="ds-component-box">
           <div class="ds-component-title">Raios de Borda (Corner Radii)</div>
           <div class="ds-flex-wrap">
-            <div style="padding: 0.75rem 1.25rem; background: var(--eq-slate-100); border: 2px solid var(--eq-slate-400); border-radius: var(--eq-radius-xs); font-size: 0.8125rem; font-weight: var(--eq-font-weight-semibold);">
+            <div style="padding: 0.75rem 1.25rem; background: var(--af-slate-100); border: 2px solid var(--af-slate-400); border-radius: var(--af-radius-xs); font-size: 0.8125rem; font-weight: var(--af-font-weight-semibold);">
               XS (4px)
             </div>
-            <div style="padding: 0.75rem 1.25rem; background: var(--eq-slate-100); border: 2px solid var(--eq-slate-400); border-radius: var(--eq-radius-sm); font-size: 0.8125rem; font-weight: var(--eq-font-weight-semibold);">
+            <div style="padding: 0.75rem 1.25rem; background: var(--af-slate-100); border: 2px solid var(--af-slate-400); border-radius: var(--af-radius-sm); font-size: 0.8125rem; font-weight: var(--af-font-weight-semibold);">
               SM (6px)
             </div>
-            <div style="padding: 0.75rem 1.25rem; background: var(--eq-slate-100); border: 2px solid var(--eq-slate-400); border-radius: var(--eq-radius-md); font-size: 0.8125rem; font-weight: var(--eq-font-weight-semibold);">
+            <div style="padding: 0.75rem 1.25rem; background: var(--af-slate-100); border: 2px solid var(--af-slate-400); border-radius: var(--af-radius-md); font-size: 0.8125rem; font-weight: var(--af-font-weight-semibold);">
               MD (10px)
             </div>
-            <div style="padding: 0.75rem 1.25rem; background: var(--eq-slate-100); border: 2px solid var(--eq-slate-400); border-radius: var(--eq-radius-lg); font-size: 0.8125rem; font-weight: var(--eq-font-weight-semibold);">
+            <div style="padding: 0.75rem 1.25rem; background: var(--af-slate-100); border: 2px solid var(--af-slate-400); border-radius: var(--af-radius-lg); font-size: 0.8125rem; font-weight: var(--af-font-weight-semibold);">
               LG (14px)
             </div>
-            <div style="padding: 0.75rem 1.25rem; background: var(--eq-slate-100); border: 2px solid var(--eq-slate-400); border-radius: var(--eq-radius-pill); font-size: 0.8125rem; font-weight: var(--eq-font-weight-semibold);">
+            <div style="padding: 0.75rem 1.25rem; background: var(--af-slate-100); border: 2px solid var(--af-slate-400); border-radius: var(--af-radius-pill); font-size: 0.8125rem; font-weight: var(--af-font-weight-semibold);">
               Pill (9999px)
             </div>
           </div>
@@ -497,20 +497,20 @@
             </div>
 
             <div class="col-12">
-              <label style="font-size: 0.84375rem; font-weight: var(--eq-font-weight-semibold); margin-bottom: 0.5rem; display: block;">Escopo da Regra</label>
+              <label style="font-size: 0.84375rem; font-weight: var(--af-font-weight-semibold); margin-bottom: 0.5rem; display: block;">Escopo da Regra</label>
               <div class="radio-card-group">
                 <div class="radio-card selected" onclick="selectRadioCard(this)">
                   <input type="radio" name="scopeEx" checked style="margin-top: 3px;">
                   <div>
-                    <strong style="font-size: 0.875rem; display: block; color: var(--eq-slate-900);">Global (Rede Inteira)</strong>
-                    <span style="font-size: 0.75rem; color: var(--eq-slate-500);">Aplica a todas as lojas cadastradas no Konduto</span>
+                    <strong style="font-size: 0.875rem; display: block; color: var(--af-slate-900);">Global (Rede Inteira)</strong>
+                    <span style="font-size: 0.75rem; color: var(--af-slate-500);">Aplica a todas as lojas cadastradas no portal</span>
                   </div>
                 </div>
                 <div class="radio-card" onclick="selectRadioCard(this)">
                   <input type="radio" name="scopeEx" style="margin-top: 3px;">
                   <div>
-                    <strong style="font-size: 0.875rem; display: block; color: var(--eq-slate-900);">Loja Específica</strong>
-                    <span style="font-size: 0.75rem; color: var(--eq-slate-500);">Vínculo exclusivo com uma unidade e-commerce</span>
+                    <strong style="font-size: 0.875rem; display: block; color: var(--af-slate-900);">Loja Específica</strong>
+                    <span style="font-size: 0.75rem; color: var(--af-slate-500);">Vínculo exclusivo com uma unidade e-commerce</span>
                   </div>
                 </div>
               </div>
@@ -523,11 +523,11 @@
       <!-- SECTION 8: CONSTRUTOR DE REGRAS -->
       <section id="condition-builder" class="ds-section">
         <h2 class="ds-section-title">⚡ Construtor de Condições de Regras (Rule Builder)</h2>
-        <p class="ds-section-desc">Interface dinâmica para composição de lógica booleana do motor Konduto.</p>
+        <p class="ds-section-desc">Interface dinâmica para composição de lógica booleana do motor antifraude.</p>
 
         <div class="condition-builder-card">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
-            <strong style="font-size: 0.9375rem; color: var(--eq-slate-900);">Blocos Condicionais (SE...)</strong>
+            <strong style="font-size: 0.9375rem; color: var(--af-slate-900);">Blocos Condicionais (SE...)</strong>
             <button class="btn-outline-teal btn-sm" onclick="addDemoCondition()">+ Adicionar Condição</button>
           </div>
 
@@ -535,7 +535,7 @@
             <div class="condition-row">
               <span class="logic-operator-badge">SE</span>
               <select class="form-control" style="flex: 2;">
-                <option selected>Score Konduto (0-1000)</option>
+                <option selected>Score de Risco (0-1000)</option>
                 <option>Valor Total do Pedido (R$)</option>
                 <option>Tentativas de Cartão nas últimas 24h</option>
               </select>
@@ -551,7 +551,7 @@
             <div class="condition-row">
               <span class="logic-operator-badge">E</span>
               <select class="form-control" style="flex: 2;">
-                <option>Score Konduto (0-1000)</option>
+                <option>Score de Risco (0-1000)</option>
                 <option selected>Valor Total do Pedido (R$)</option>
                 <option>Tentativas de Cartão nas últimas 24h</option>
               </select>
@@ -564,8 +564,8 @@
             </div>
           </div>
 
-          <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--eq-slate-200); display: flex; align-items: center; justify-content: space-between;">
-            <span style="font-size: 0.8125rem; font-weight: var(--eq-font-weight-bold); color: var(--eq-slate-700);">Ação a Tomar quando Disparar:</span>
+          <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--af-slate-200); display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 0.8125rem; font-weight: var(--af-font-weight-bold); color: var(--af-slate-700);">Ação a Tomar quando Disparar:</span>
             <div style="display: flex; gap: 0.75rem;">
               <span class="action-decision-badge decline">NEGAR TRANSACÃO</span>
             </div>
@@ -596,8 +596,8 @@
               <tr>
                 <td><strong>#R-101</strong></td>
                 <td>
-                  <div style="font-weight: var(--eq-font-weight-semibold); color: var(--eq-slate-900);">High Score + Valor Alto</div>
-                  <div style="font-size: 0.75rem; color: var(--eq-slate-500);">Bloqueia compras &gt; R$ 1.500 com score &gt; 800</div>
+                  <div style="font-weight: var(--af-font-weight-semibold); color: var(--af-slate-900);">High Score + Valor Alto</div>
+                  <div style="font-size: 0.75rem; color: var(--af-slate-500);">Bloqueia compras &gt; R$ 1.500 com score &gt; 800</div>
                 </td>
                 <td><span class="scope-indicator global" style="padding: 0.2rem 0.6rem; font-size: 0.75rem;"><span class="indicator-tag">GLOBAL</span></span></td>
                 <td><span class="risk-tag risk-high">Alto</span></td>
@@ -611,8 +611,8 @@
               <tr>
                 <td><strong>#R-102</strong></td>
                 <td>
-                  <div style="font-weight: var(--eq-font-weight-semibold); color: var(--eq-slate-900);">Múltiplos Cartões por IP</div>
-                  <div style="font-size: 0.75rem; color: var(--eq-slate-500);">Mais de 3 cartões em menos de 10 minutos</div>
+                  <div style="font-weight: var(--af-font-weight-semibold); color: var(--af-slate-900);">Múltiplos Cartões por IP</div>
+                  <div style="font-size: 0.75rem; color: var(--af-slate-500);">Mais de 3 cartões em menos de 10 minutos</div>
                 </td>
                 <td><span class="scope-indicator" style="padding: 0.2rem 0.6rem; font-size: 0.75rem;"><span class="indicator-tag">LOJA</span> Matriz</span></td>
                 <td><span class="risk-tag risk-medium">Médio</span></td>
@@ -626,8 +626,8 @@
               <tr>
                 <td><strong>#R-103</strong></td>
                 <td>
-                  <div style="font-weight: var(--eq-font-weight-semibold); color: var(--eq-slate-900);">Monitoramento Passivo Score 900</div>
-                  <div style="font-size: 0.75rem; color: var(--eq-slate-500);">Regra fantasma para auditoria sem bloqueio</div>
+                  <div style="font-weight: var(--af-font-weight-semibold); color: var(--af-slate-900);">Monitoramento Passivo Score 900</div>
+                  <div style="font-size: 0.75rem; color: var(--af-slate-500);">Regra fantasma para auditoria sem bloqueio</div>
                 </td>
                 <td><span class="scope-indicator global" style="padding: 0.2rem 0.6rem; font-size: 0.75rem;"><span class="indicator-tag">GLOBAL</span></span></td>
                 <td><span class="risk-tag risk-low">Baixo</span></td>
@@ -644,7 +644,7 @@
             <div>Exibindo <strong>1 - 3</strong> de <strong>42</strong> regras ativas</div>
             <div style="display: flex; gap: 0.5rem; align-items: center;">
               <button class="btn-secondary btn-sm" disabled>Anterior</button>
-              <span style="font-weight: var(--eq-font-weight-bold); font-size: 0.8125rem; padding: 0 0.4rem;">Página 1 de 14</span>
+              <span style="font-weight: var(--af-font-weight-bold); font-size: 0.8125rem; padding: 0 0.4rem;">Página 1 de 14</span>
               <button class="btn-secondary btn-sm">Próxima</button>
             </div>
           </div>
@@ -655,7 +655,7 @@
       <!-- SECTION 10: HEADER & TOASTS -->
       <section id="header-toasts" class="ds-section">
         <h2 class="ds-section-title">🖥️ Header da Aplicação & Banners de Toast</h2>
-        <p class="ds-section-desc">Estrutura de topo oficial do EBV Konduto com barra de accent e notificações.</p>
+        <p class="ds-section-desc">Estrutura de topo oficial do portal antifraude com barra de accent e notificações.</p>
 
         <div class="ds-component-box" style="padding: 0; overflow: hidden;">
           <header class="app-header">
@@ -665,7 +665,7 @@
             <div class="toast-banner toast-success">
               <div style="display: inline-flex; align-items: center; gap: 0.6rem;">
                 <span class="toast-tag" style="background: rgba(255,255,255,0.2); padding: 0.15rem 0.4rem; border-radius: 3px; font-size: 0.65rem;">SUCESSO</span>
-                <span>Regra <strong>#R-101 (High Score)</strong> atualizada e sincronizada com a API Konduto!</span>
+                <span>Regra <strong>#R-101 (High Score)</strong> atualizada e sincronizada com a API antifraude!</span>
               </div>
             </div>
 
@@ -673,7 +673,7 @@
               <div class="brand-section">
                 <a href="#" class="brand-logo">
                   <div class="logo-group">
-                    <span class="logo-primary">EBV KONDUTO</span>
+                    <span class="logo-primary">ANTIFRAUDE</span>
                   </div>
                   <div class="brand-badge-wrapper">
                     <span class="brand-badge">Gestão Antifraude Executivo</span>
@@ -703,8 +703,8 @@
         <p class="ds-section-desc">Clique no botão abaixo para abrir a janela modal interativa do Simulador Antifraude.</p>
 
         <div class="ds-component-box" style="text-align: center; padding: 3rem 2rem;">
-          <h3 style="margin-top: 0; font-size: 1.2rem; font-weight: var(--eq-font-weight-bold);">Simulador de Decisão Antifraude</h3>
-          <p style="color: var(--eq-slate-600); max-width: 500px; margin: 0.5rem auto 1.5rem auto; font-size: 0.875rem;">
+          <h3 style="margin-top: 0; font-size: 1.2rem; font-weight: var(--af-font-weight-bold);">Simulador de Decisão Antifraude</h3>
+          <p style="color: var(--af-slate-600); max-width: 500px; margin: 0.5rem auto 1.5rem auto; font-size: 0.875rem;">
             Insira dados sintéticos de uma transação (valor, score, IP, cartões) e veja as regras sendo avaliadas em tempo real.
           </p>
           <button class="btn-primary btn-lg" onclick="toggleSimulatorModal(true)">
@@ -724,7 +724,7 @@
         <div class="title-wrapper">
           <span class="modal-icon">⚡</span>
           <div>
-            <h2>Simulador de Regras Antifraude - EBV Konduto</h2>
+            <h2>Simulador de Regras Antifraude</h2>
             <p>Teste o comportamento do motor em tempo real antes de ativar em produção</p>
           </div>
         </div>
@@ -735,12 +735,12 @@
         <div style="display: grid; grid-template-columns: 380px 1fr; gap: 1.5rem;">
           
           <!-- Inputs Column -->
-          <div style="background-color: var(--eq-slate-50); padding: 1.25rem; border-radius: var(--eq-radius-md); border: 1px solid var(--eq-slate-200);">
-            <strong style="font-size: 0.84375rem; color: var(--eq-slate-900); display: block; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">1. Dados da Transação Teste</strong>
+          <div style="background-color: var(--af-slate-50); padding: 1.25rem; border-radius: var(--af-radius-md); border: 1px solid var(--af-slate-200);">
+            <strong style="font-size: 0.84375rem; color: var(--af-slate-900); display: block; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">1. Dados da Transação Teste</strong>
             
             <div style="display: flex; flex-direction: column; gap: 0.85rem;">
               <div class="form-group">
-                <label>Score Konduto (0 a 1000)</label>
+                <label>Score de Risco (0 a 1000)</label>
                 <input id="simScore" type="number" class="form-control" value="850" oninput="runSimCalculation()">
               </div>
               <div class="form-group">
@@ -756,20 +756,20 @@
 
           <!-- Decision Output Column -->
           <div>
-            <strong style="font-size: 0.84375rem; color: var(--eq-slate-900); display: block; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">2. Resultado da Avaliação</strong>
+            <strong style="font-size: 0.84375rem; color: var(--af-slate-900); display: block; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">2. Resultado da Avaliação</strong>
 
-            <div id="decisionResultCard" class="decision-card" style="border-left-color: var(--eq-red-primary);">
-              <div style="font-size: 0.6875rem; font-weight: var(--eq-font-weight-bold); color: var(--eq-slate-500); text-transform: uppercase;">Decisão Final Recomendada</div>
+            <div id="decisionResultCard" class="decision-card" style="border-left-color: var(--af-red-primary);">
+              <div style="font-size: 0.6875rem; font-weight: var(--af-font-weight-bold); color: var(--af-slate-500); text-transform: uppercase;">Decisão Final Recomendada</div>
               <div style="margin: 0.5rem 0;">
                 <span id="decisionBadge" class="action-decision-badge decline" style="font-size: 1rem; padding: 0.5rem 1rem;">NEGAR TRANSAÇÃO</span>
               </div>
-              <p id="decisionReason" style="font-size: 0.84375rem; color: var(--eq-slate-700); margin: 0;">
+              <p id="decisionReason" style="font-size: 0.84375rem; color: var(--af-slate-700); margin: 0;">
                 Disparado pela Regra <strong>#R-101 (High Score + Valor Alto)</strong>: Score &gt; 800 e Valor &gt; R$ 1.500.
               </p>
             </div>
 
-            <div style="margin-top: 1.5rem; background: var(--eq-slate-950); color: var(--eq-slate-200); padding: 1rem; border-radius: var(--eq-radius-sm); font-family: var(--eq-font-mono); font-size: 0.75rem;">
-              <div style="color: var(--eq-slate-500); margin-bottom: 0.4rem;">// Log de Execução da Engine:</div>
+            <div style="margin-top: 1.5rem; background: var(--af-slate-950); color: var(--af-slate-200); padding: 1rem; border-radius: var(--af-radius-sm); font-family: var(--af-font-mono); font-size: 0.75rem;">
+              <div style="color: var(--af-slate-500); margin-bottom: 0.4rem;">// Log de Execução da Engine:</div>
               <div id="simLogText">[17:15:02] Transação iniciada: Score=850, Pedido=R$1800.00<br>[17:15:02] Avaliando Regra #R-101... [DISPAROU - DECLINE]<br>[17:15:02] Processamento concluído em 1.2ms.</div>
             </div>
           </div>
@@ -813,7 +813,7 @@
       newRow.innerHTML = `
         <span class="logic-operator-badge">E</span>
         <select class="form-control" style="flex: 2;">
-          <option>Score Konduto (0-1000)</option>
+          <option>Score de Risco (0-1000)</option>
           <option>Valor Total do Pedido (R$)</option>
           <option selected>Tentativas de Cartão nas últimas 24h</option>
         </select>
@@ -842,19 +842,19 @@
       if (score >= 800 || cards >= 5) {
         badge.className = 'action-decision-badge decline';
         badge.textContent = 'NEGAR TRANSAÇÃO';
-        card.style.borderLeftColor = 'var(--eq-red-primary)';
+        card.style.borderLeftColor = 'var(--af-red-primary)';
         reason.innerHTML = 'Disparado por Regra de Alto Risco: Score &ge; 800 ou Múltiplos Cartões (&ge; 5).';
         log.innerHTML = `[${now}] Transação: Score=${score}, Valor=R$${amount.toFixed(2)}, Cartões=${cards}<br>[${now}] Regra #R-101 DISPAROU: Risco Elevado [NEGAR]`;
       } else if (score >= 500 || amount > 1000) {
         badge.className = 'action-decision-badge review';
         badge.textContent = 'REVISAR MANUAL';
-        card.style.borderLeftColor = 'var(--eq-warning-yellow)';
+        card.style.borderLeftColor = 'var(--af-warning-yellow)';
         reason.innerHTML = 'Disparado por Regra de Risco Médio: Pedido acima de R$ 1.000 ou Score moderado.';
         log.innerHTML = `[${now}] Transação: Score=${score}, Valor=R$${amount.toFixed(2)}, Cartões=${cards}<br>[${now}] Regra #R-102 DISPAROU: Análise Manual [REVISAR]`;
       } else {
         badge.className = 'action-decision-badge approve';
         badge.textContent = 'APROVAR TRANSAÇÃO';
-        card.style.borderLeftColor = 'var(--eq-success-green)';
+        card.style.borderLeftColor = 'var(--af-success-green)';
         reason.innerHTML = 'Nenhuma regra de bloqueio ativada. Transação dentro dos parâmetros normais.';
         log.innerHTML = `[${now}] Transação: Score=${score}, Valor=R$${amount.toFixed(2)}, Cartões=${cards}<br>[${now}] Nenhuma infração detectada. [APROVAR]`;
       }

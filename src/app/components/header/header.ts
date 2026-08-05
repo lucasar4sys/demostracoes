@@ -52,7 +52,7 @@ import { RuleService } from '../../services/rule.service';
               <path d="M6 20c.4-4 2.3-6 6-6s5.6 2 6 6" />
             </svg>
             <span class="online-dot"></span>
-            <span>analista.risco&#64;equifax.com</span>
+            <span>analista.risco&#64;empresa.com</span>
           </div>
         </div>
       </div>

@@ -104,7 +104,7 @@ import { ChangeDetectionStrategy, Component, output } from '@angular/core';
             <dt>Autor da Proposta:</dt>
             <dd>Nexus AI Agent (Condução Automática)</dd>
             <dt>Aprovador de Risco:</dt>
-            <dd>Comitê de Risco Equifax | Boa Vista</dd>
+            <dd>Comitê de Risco</dd>
             <dt>Status de Validação:</dt>
             <dd>Aprovado em Ghost Mode (0 falsos bloqueios)</dd>
           </dl>
