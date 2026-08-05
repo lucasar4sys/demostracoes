@@ -28,6 +28,7 @@ import { RuleService } from '../../services/rule.service';
         </a>
 
         <div class="header-actions">
+          <!-- Seletor de Escopo de Loja -->
           <label class="scope-control">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="m12 3 8 4-8 4-8-4 8-4Zm-8 9 8 4 8-4M4 17l8 4 8-4" />
@@ -46,13 +47,27 @@ import { RuleService } from '../../services/rule.service';
             </select>
           </label>
 
-          <div class="user-chip">
+          <!-- Seletor de Perfil RBAC para Demonstração Regulatória (CMN 4.966) -->
+          <div class="rbac-control" [class]="'rbac-control ' + ruleService.currentUser().role.toLowerCase()">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <circle cx="12" cy="8" r="3" />
               <path d="M6 20c.4-4 2.3-6 6-6s5.6 2 6 6" />
             </svg>
-            <span class="online-dot"></span>
-            <span>analista.risco&#64;empresa.com</span>
+            <span>Perfil:</span>
+
+            <select
+              [ngModel]="ruleService.currentUserRole()"
+              (ngModelChange)="ruleService.currentUserRole.set($event)"
+              aria-label="Selecionar perfil RBAC"
+              class="rbac-select"
+            >
+              <option value="GESTOR">Gestor de Risco (Lucas Ribeiro)</option>
+              <option value="ANALISTA">Analista de Prevenção (Mariana Silva)</option>
+              <option value="AUDITOR">Auditor (Carlos Mendes)</option>
+            </select>
+            <span class="role-badge" [class]="ruleService.currentUser().role.toLowerCase()">
+              {{ ruleService.currentUser().role }}
+            </span>
           </div>
         </div>
       </div>

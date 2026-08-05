@@ -6,6 +6,10 @@ export type RuleAction = 'APPROVE' | 'REVIEW' | 'DECLINE';
 
 export type RuleLayer = '1st' | '2nd';
 
+export type RuleStatus = 'DRAFT' | 'SIMULATED' | 'GHOST_ACTIVE' | 'APPROVED' | 'ACTIVE';
+
+export type UserRole = 'AUDITOR' | 'ANALISTA' | 'GESTOR';
+
 export interface Store {
   id: string;
   name: string;
@@ -43,6 +47,15 @@ export interface Rule {
   clauses: RuleClause[];
   createdAt: string;
   updatedAt: string;
+  
+  // Novas propriedades regulatórias (CMN 4.966 e LGPD)
+  status: RuleStatus;
+  ticketPrd: string;
+  ghostStartedAt?: string; // ISO string ou timestamp de quando o Ghost Mode foi ativado
+  authorName: string;
+  approverName?: string;
+  approvalJustification?: string;
+  approvalSnapshot?: string; // Snapshot JSON imutável
 }
 
 export interface TransactionSimulation {
@@ -57,6 +70,8 @@ export interface TransactionSimulation {
   customerEmail: string;
   attempts24h: number;
   riskScore: number;
+  deviceFingerprintSeen?: string; // 'SIM' | 'NÃO'
+  locationDiverges?: string;      // 'SIM' | 'NÃO'
 }
 
 export interface RuleMatchResult {
@@ -72,4 +87,26 @@ export interface SimulationResult {
   matchedRules: RuleMatchResult[];
   ghostRulesTriggered: RuleMatchResult[];
   explanation: string;
+}
+
+export interface AuditLog {
+  id: string;
+  ruleId: string;
+  ruleName: string;
+  action: 'CREATE' | 'SIMULATE' | 'GHOST_START' | 'APPROVE' | 'ACTIVATE' | 'DEACTIVATE' | 'UPDATE';
+  user: string;
+  userRole: UserRole;
+  timestamp: string;
+  details: string;
+  snapshot?: string; // JSON String do estado imutável da regra no momento do log
+}
+
+export interface BacktestResult {
+  analyzedCount: number;
+  impactedCount: number;
+  impactedPercent: number;
+  estimatedFraudPrevention: number;
+  falsePositivePercent: number;
+  sazonalidadeAlert: boolean;
+  sazonalidadeDetails?: string;
 }

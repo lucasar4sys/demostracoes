@@ -64,14 +64,15 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
 }
 
 .scope-control,
-.user-chip {
+.rbac-control {
   height: 38px;
   border: 1px solid #dfe4ec;
   background: #f8fafc;
-  border-radius: 20px;
+  border-radius: 9px;
   color: #334155;
   display: inline-flex;
   align-items: center;
@@ -81,12 +82,8 @@
   font-weight: 600;
 }
 
-.scope-control {
-  border-radius: 9px;
-}
-
 .scope-control svg,
-.user-chip svg {
+.rbac-control svg {
   width: 17px;
   height: 17px;
   fill: none;
@@ -94,22 +91,80 @@
   stroke-width: 1.8;
 }
 
-.scope-control select {
+.scope-control select,
+.rbac-control select {
   border: 0;
   outline: 0;
   color: #334155;
   background: transparent;
   font: inherit;
   cursor: pointer;
+  padding-right: 4px;
 }
 
-.online-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #54a3d8;
-  margin-left: -5px;
+.rbac-select {
+  max-width: 245px;
 }
+
+.rbac-control {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  min-width: 0;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.gestor {
+    border-color: #10b981;
+    background: #f0fdf4;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.12);
+    
+    svg { stroke: #059669; }
+    select { color: #065f46; }
+  }
+
+  &.analista {
+    border-color: #3b82f6;
+    background: #eff6ff;
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.12);
+
+    svg { stroke: #2563eb; }
+    select { color: #1e40af; }
+  }
+
+  &.auditor {
+    border-color: #f59e0b;
+    background: #fffbeb;
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.12);
+
+    svg { stroke: #d97706; }
+    select { color: #92400e; }
+  }
+}
+
+.role-badge {
+  flex: 0 0 auto;
+  font-size: 10px;
+  padding: 3px 7px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+
+  &.gestor {
+    background-color: #10b981;
+  }
+
+  &.analista {
+    background-color: #3b82f6;
+  }
+
+  &.auditor {
+    background-color: #f59e0b;
+  }
+}
+
+
 
 .toast-banner {
   position: fixed;
@@ -135,11 +190,25 @@
 @media (max-width: 760px) {
   .brand-copy small,
   .scope-control > span,
-  .user-chip > span:last-child {
+  .rbac-control > span:first-of-type {
     display: none;
   }
 
   .header-container {
     padding: 0 14px;
+    gap: 12px;
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  .rbac-select {
+    max-width: 120px;
+  }
+
+  .role-badge {
+    display: none;
   }
 }
+
