@@ -700,17 +700,19 @@ export class RuleService {
       this.addAuditLog(rule.id, rule.name, 'SIMULATE', 'Iniciada simulação retrospectiva de 30 dias de transações.');
 
       setTimeout(() => {
-        // Atualiza a regra para status SIMULATED após simulação bem sucedida (TC-DN02-05)
+        // Atualiza a regra para status SIMULATED após simulação bem sucedida (TC-DN02-05) se estiver em DRAFT
         const updated = this.rules().map(r => {
           if (r.id === id) {
+            const nextStatus = r.status === 'DRAFT' ? 'SIMULATED' : r.status;
             return {
               ...r,
-              status: 'SIMULATED',
+              status: nextStatus,
               updatedAt: this.formatCurrentDate()
             } as Rule;
           }
           return r;
         });
+
         this.saveRules(updated);
 
         // Retorna o resultado com base no PRD se for a regra correspondente

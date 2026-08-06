@@ -42,7 +42,13 @@ __screenshots__/
 # Nexus / Agent temporary files
 .nexus/
 
+# Playwright test reports & results
+/e2e-results
+/playwright-report
+/test-results
+
 # System files
 .DS_Store
 Thumbs.db
+
 
